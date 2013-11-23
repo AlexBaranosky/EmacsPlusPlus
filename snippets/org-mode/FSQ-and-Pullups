@@ -1,0 +1,12 @@
+#name: Front Squats and Pullups Day
+# --
+`(format-time-string "* %A, %m/%d/%y")`
+Alex:
+  Front Squat: ...  x${1:weight}
+  Pullups:     ...  x${2:weight}
+
+Paula:
+  Front Squat: ...  x${3:weight}
+  Pullups:     ...  x${4:weight}
+
+$0
