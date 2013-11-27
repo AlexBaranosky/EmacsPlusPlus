@@ -4,9 +4,9 @@
 Alex:
   Front Squat: ...  x${1:weight}
   Pullups:     ...  x${2:weight}
-
+  HIIT:        ...  x${3:seconds} 10% ${4:speed}
 Paula:
-  Front Squat: ...  x${3:weight}
-  Pullups:     ...  x${4:weight}
+  Front Squat: ...  x${5:weight}
+  Pullups:     ...  x${6:weight}
 
 $0

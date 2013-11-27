@@ -77,7 +77,7 @@
   (key-chord-define-global "gp" 'rgrep)
   
   (package-require 'iy-go-to-char)
-  (global-set-key (kbd "M-m") 'iy-go-to-char)
+  ;;  (global-set-key (kbd "M-m") 'iy-go-to-char)
   (key-chord-define-global ";d" 'backward-kill-word)
 
   (global-set-key (kbd "C-c C-r") 'rename-sgml-tag)
@@ -212,7 +212,7 @@
   (global-auto-revert-mode t)
   (global-linum-mode)
   (setq clojure-font-lock-comment-sexp t)
-  (setq-default fill-column 80)
+  (setq-default fill-column 90)
   (when (string-equal system-type "darwin")
     (set-default-font "-apple-inconsolata-medium-r-normal--14-180-72-72-m-180-iso8859-1"))
   (setq ring-bell-function (lambda () (message "*beep*")))
@@ -247,6 +247,23 @@
   ;;         ))
   )
 
+(defun hack-clojure-test-mode-for-gui-diff ()
+  (defun clojure-test-run-tests ()
+    "Run all the tests in the current namespace using gui.diff/run-tests++."
+    (interactive)
+    (save-some-buffers nil (lambda () (equal major-mode 'clojure-mode)))
+    (message "Testing w/ Gui Diff...")
+    (if (not (clojure-in-tests-p))
+        (cider-load-file (buffer-file-name)))
+    (save-window-excursion
+      (if (not (clojure-in-tests-p))
+          (clojure-jump-to-test))
+      (clojure-test-clear)
+      (clojure-test-eval (format "(require '[gui.diff]) ;; only changes are in this string.
+                                  (gui.diff/run-tests++ '%s)"
+                                 (clojure-find-ns))
+                         #'clojure-test-get-results))))
+
 ;;;; Load 'Em Up!
 
 (setup-packaging-system)
@@ -258,6 +275,7 @@
 (setup-assorted-emacs)
 
 (define-tag-functions)
+(hack-clojure-test-mode-for-gui-diff)
 
 
 ;;;; Emacs Auto-Added Code, below
