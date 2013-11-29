@@ -220,7 +220,7 @@
   (load-theme 'sanityinc-solarized-dark)
 
   (setq erc-autojoin-channels-alist
-        '(("freenode.net" "#clojure" "#emacs" "#typed-clojure")))
+        '(("freenode.net" "#clojure" "#emacs")))
 
   ;; TODO: make alexbaranosky
   (erc :server "irc.freenode.net" :port 6667 :nick "abaranosky"))
@@ -275,7 +275,10 @@
 (setup-assorted-emacs)
 
 (define-tag-functions)
-(hack-clojure-test-mode-for-gui-diff)
+;; (hack-clojure-test-mode-for-gui-diff)
+
+(autoload 'yeti-mode "yeti-mode" nil t)
+(add-to-list 'auto-mode-alist '("\\.yeti$" . yeti-mode))
 
 
 ;;;; Emacs Auto-Added Code, below
