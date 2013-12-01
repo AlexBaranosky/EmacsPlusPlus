@@ -3,10 +3,13 @@
 `(format-time-string "* %A, %m/%d/%y")`
 Alex:
   Front Squat: ...  x${1:weight}
-  Pullups:     ...  x${2:weight}
-  HIIT:        ...  x${3:seconds} 10% ${4:speed}
+  Presses:     ...  x${2:weight}
+  Pullups:     ...  x${3:weight}
+  Turkish Getups ?: ... x${4:db weight}DBs
+  Jack-Knifes ?: ...  x (hanging alla E.H. video)
+  HIIT?:        ...  x${5:seconds} 10% ${4:speed}
 Paula:
-  Front Squat: ...  x${5:weight}
-  Pullups:     ...  x${6:weight}
+  Front Squat: ...  x${6:weight}
+  Pullups:     ...  x${7:weight}
 
 $0

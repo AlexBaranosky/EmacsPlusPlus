@@ -4,9 +4,12 @@
 Alex:
   Deadlift: ...  x${1:weight}
   Dips:     ...  x${2:weight}
+  Renegade Rows:  ... x${3:db weight}DBs
+  Farmer's Walks: ... x${4:db weight}DBs (full length of gym)
+  HIIT?:          ...  x${5:seconds} 10% ${4:speed}
 
 Paula:
-  Deadlift: ...  x${3:weight}
-  Dips:     ...  x${4:weight}
+  Deadlift: ...  x${6:weight}
+  Dips:     ...  x${7:weight}
 
 $0
