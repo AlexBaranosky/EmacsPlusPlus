@@ -193,6 +193,7 @@
   (package-require 'nav)
   (package-require 's)
   (package-require 'scala-mode)
+  (package-require 'slamhound)
   (package-require 'projectile)
   (package-require 'protobuf-mode)
   (package-require 'ruby-end)
@@ -220,7 +221,7 @@
   (load-theme 'sanityinc-solarized-dark)
 
   (setq erc-autojoin-channels-alist
-        '(("freenode.net" "#clojure" "#emacs")))
+        '(("freenode.net" "#clojure" "#emacs" "#bitcoin" "##econometrics")))
 
   ;; TODO: make alexbaranosky
   (erc :server "irc.freenode.net" :port 6667 :nick "abaranosky"))
