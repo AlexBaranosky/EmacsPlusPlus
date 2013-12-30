@@ -11,6 +11,9 @@
 ;; No splash screen please ... jeez
 (setq inhibit-startup-message t)
 
+;; enable y/n answers
+(fset 'yes-or-no-p 'y-or-n-p)
+
 
 ;;;; Component Functions
 
