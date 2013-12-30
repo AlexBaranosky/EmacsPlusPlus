@@ -27,13 +27,14 @@
   ;; (add-to-list 'package-archives
   ;;              '("melpa" . "http://melpa.milkbox.net/packages/") t)
   (add-to-list 'load-path "~/.emacs.d")
+  (add-to-list 'load-path "~/.emacs.d/modules/alexb-erc.el")
   (package-initialize)
 
   (when (not package-archive-contents)
     (package-refresh-contents)))
 
 (setq package-refresh-first-time nil)
-(defun package-require (package-name)
+(defun alexb-package-require (package-name)
   "tries to require. If it fails, it retrieves the package and
    tries to require again (y benzap on #emacs)"
   (if (not (require package-name nil t))
@@ -46,7 +47,7 @@
         (require package-name nil t))))
 
 (defun setup-cider ()
-  (package-require 'cider)
+  (alexb-package-require 'cider)
   (setq nrepl-hide-special-buffers t)
   (setq cider-repl-popup-stacktraces t)
   (setq cider-repl-history-file "~/.emacs.d/nrepl-history")
@@ -56,23 +57,23 @@
               (add-hook 'cider-mode-hook 'cider-turn-on-eldoc-mode) ;;?
               (cider-enable-on-existing-clojure-buffers)))
   (add-hook 'cider-mode-hook 'subword-mode)
-  (package-require 'ac-nrepl)
+  (alexb-package-require 'ac-nrepl)
   (eval-after-load "auto-complete"
     '(add-to-list 'ac-modes 'cider-mode))
   (add-hook 'cider-mode-hook 'ac-nrepl-setup))
 
 (defun setup-clojure-packages ()
-  (package-require 'clojure-mode)
+  (alexb-package-require 'clojure-mode)
   (setup-cider)
-  (package-require 'clojure-test-mode)
+  (alexb-package-require 'clojure-test-mode)
   (add-hook 'clojure-mode 'paredit-mode)
   (add-hook 'clojure-mode 'clojure-test-mode))
 
 (defun setup-starter-kits-packages ()
-  (package-require 'starter-kit)
-  (package-require 'starter-kit-bindings)
-  (package-require 'starter-kit-eshell)
-  (package-require 'starter-kit-lisp))
+  (alexb-package-require 'starter-kit)
+  (alexb-package-require 'starter-kit-bindings)
+  (alexb-package-require 'starter-kit-eshell)
+  (alexb-package-require 'starter-kit-lisp))
 
 (defun switch-to-previous-buffer ()
   "Switch to previously open buffer.
@@ -81,7 +82,7 @@ Repeated invocations toggle between the two most recently open buffers."
   (switch-to-buffer (other-buffer (current-buffer) 1)))
 
 (defun setup-packages-needing-tweaks ()
-  (package-require 'key-chord)
+  (alexb-package-require 'key-chord)
   (key-chord-mode 1)
 
   (global-set-key (kbd "S-C-<left>")  'shrink-window-horizontally)
@@ -89,7 +90,7 @@ Repeated invocations toggle between the two most recently open buffers."
   (global-set-key (kbd "S-C-<down>")  'shrink-window)
   (global-set-key (kbd "S-C-<up>")    'enlarge-window)
 
-  (package-require 'expand-region)
+  (alexb-package-require 'expand-region)
 
   (defun cursor-jump-up ()
     (interactive)
@@ -112,30 +113,30 @@ Repeated invocations toggle between the two most recently open buffers."
   
   (global-set-key (kbd "C-c C-r") 'rename-sgml-tag)
 
-  (package-require 'auto-complete)
+  (alexb-package-require 'auto-complete)
   (global-auto-complete-mode t)
 
-  (package-require 'jabber)
+  (alexb-package-require 'jabber)
   (setq jabber-nickname "Alex Baranosky")
   (setq jabber-account-list
         '(("alexander.baranosky@gmail.com"
            (:network-server . "talk.google.com")
            (:connection-type . ssl))))
 
-  (package-require 'robe)
+  (alexb-package-require 'robe)
   (add-hook 'ruby-mode-hook 'robe-mode)
   (add-hook 'robe-mode-hook 'robe-ac-setup)
 
-  (package-require 'subword)
+  (alexb-package-require 'subword)
   (subword-mode)
 
-  (package-require 'winner)
+  (alexb-package-require 'winner)
   (winner-mode)
 
-  (package-require 'textmate)
+  (alexb-package-require 'textmate)
   (global-set-key (kbd "C-x M-f") 'textmate-goto-file)
 
-  (package-require 'idomenu)
+  (alexb-package-require 'idomenu)
   (defvar push-mark-before-goto-char nil)
   (defadvice goto-char (before push-mark-first activate)
     (when push-mark-before-goto-char
@@ -146,7 +147,7 @@ Repeated invocations toggle between the two most recently open buffers."
       (idomenu)))
   (global-set-key (kbd "C-x C-i") 'idomenu)
 
-  (package-require 'multiple-cursors)
+  (alexb-package-require 'multiple-cursors)
   (global-set-key (kbd "C-.") 'mc/mark-next-like-this)
   (global-set-key (kbd "C-,") 'mc/mark-previous-like-this)
   (global-set-key (kbd "C-!") 'mc/mark-all-like-this)
@@ -156,7 +157,7 @@ Repeated invocations toggle between the two most recently open buffers."
   (global-set-key (kbd "C-x C-b") 'ibuffer)
   (autoload 'ibuffer "ibuffer" "List buffers." t)
 
-  (package-require 'yasnippet)
+  (alexb-package-require 'yasnippet)
   (setq yas/prompt-functions '(yas/ido-prompt
                                yas/completing-prompt))
   (yas/global-mode 1)
@@ -164,11 +165,11 @@ Repeated invocations toggle between the two most recently open buffers."
   (yas/load-directory "~/.emacs.d/snippets/org-mode")
   (key-chord-define-global "yy" 'yas-insert-snippet)
 
-  ;; (package-require 'js2-mode)
-  ;; (package-require 'js2-refactor)
+  ;; (alexb-package-require 'js2-mode)
+  ;; (alexb-package-require 'js2-refactor)
   ;; (js2r-add-keybindings-with-prefix "C-c C-t")
 
-  (package-require 'clj-refactor)
+  (alexb-package-require 'clj-refactor)
   (add-hook 'clojure-mode-hook (lambda ()
                                  (clj-refactor-mode 1)
                                  (cljr-add-keybindings-with-prefix "C-c C-t")))
@@ -179,51 +180,51 @@ Repeated invocations toggle between the two most recently open buffers."
   (setq ido-everywhere t)
   (ido-mode 1)
 
-  (package-require 'ido-hacks)
+  (alexb-package-require 'ido-hacks)
 
-  (package-require 'undo-tree)
+  (alexb-package-require 'undo-tree)
   (global-undo-tree-mode))
 
 (defun setup-remaining-packages ()
-  (package-require 'ace-jump-mode)
-  (package-require 'all)
-  (package-require 'alpha)
-  (package-require 'cc-mode)
-  (package-require 'cl)
-  (package-require 'col-highlight)
-  (package-require 'compile)
-  ;; (package-require 'color-theme-sanityinc-solarized)
+  (alexb-package-require 'ace-jump-mode)
+  (alexb-package-require 'all)
+  (alexb-package-require 'alpha)
+  (alexb-package-require 'cc-mode)
+  (alexb-package-require 'cl)
+  (alexb-package-require 'col-highlight)
+  (alexb-package-require 'compile)
+  ;; (alexb-package-require 'color-theme-sanityinc-solarized)
 
-  (package-require 'crosshairs)
-  (package-require 'dash)
-  (package-require 'etags-select)
-  (package-require 'etags-table)
-  (package-require 'fill-column-indicator)
-  (package-require 'fuzzy)
-  (package-require 'fuzzy-match)
-  (package-require 'go-mode)
-  (package-require 'haskell-mode)
-  (package-require 'highlight-parentheses)
-  (package-require 'highlight-symbol)
-  (package-require 'highline)
-  (package-require 'hl-sexp)
-  (package-require 'idle-highlight)
-  (package-require 'rainbow-delimiters)
-  (package-require 'markdown-mode)
-  (package-require 'maxframe)
-  (package-require 'mic-paren)
-  (package-require 'nav)
-  (package-require 's)
-  (package-require 'scala-mode)
-  (package-require 'slamhound)
-  (package-require 'projectile)
-  (package-require 'protobuf-mode)
-  ;; (package-require 'clues-theme)
-  ;;(package-require 'cyberpunk-theme)
-  ;; (package-require 'deep-thought-theme)
-  ;;(package-require 'twilight-theme)
-  (package-require 'vline)
-  ;; (package-require 'zenburn-theme)
+  (alexb-package-require 'crosshairs)
+  (alexb-package-require 'dash)
+  (alexb-package-require 'etags-select)
+  (alexb-package-require 'etags-table)
+  (alexb-package-require 'fill-column-indicator)
+  (alexb-package-require 'fuzzy)
+  (alexb-package-require 'fuzzy-match)
+  (alexb-package-require 'go-mode)
+  (alexb-package-require 'haskell-mode)
+  (alexb-package-require 'highlight-parentheses)
+  (alexb-package-require 'highlight-symbol)
+  (alexb-package-require 'highline)
+  (alexb-package-require 'hl-sexp)
+  (alexb-package-require 'idle-highlight)
+  (alexb-package-require 'rainbow-delimiters)
+  (alexb-package-require 'markdown-mode)
+  (alexb-package-require 'maxframe)
+  (alexb-package-require 'mic-paren)
+  (alexb-package-require 'nav)
+  (alexb-package-require 's)
+  (alexb-package-require 'scala-mode)
+  (alexb-package-require 'slamhound)
+  (alexb-package-require 'projectile)
+  (alexb-package-require 'protobuf-mode)
+  ;; (alexb-package-require 'clues-theme)
+  ;;(alexb-package-require 'cyberpunk-theme)
+  ;; (alexb-package-require 'deep-thought-theme)
+  ;;(alexb-package-require 'twilight-theme)
+  (alexb-package-require 'vline)
+  ;; (alexb-package-require 'zenburn-theme)
 )
 
 (defun setup-assorted-emacs ()
@@ -263,15 +264,7 @@ Repeated invocations toggle between the two most recently open buffers."
   ;; (load-theme 'clues)
   ;;(load-theme 'cyberpunk)
   ;; (load-theme 'deep-thought)
-
-  
-  (setq erc-auto-reconnect t)
-  (setq erc-autojoin-channels-alist
-        '(("freenode.net" "#clojure" "#emacs" "#bitcoin")))
-
-  ;; ;; TODO: make alexbaranosky
-  (when (y-or-n-p "Do you want to start ERC? ")
-    (erc :server "irc.freenode.net" :port 6667 :nick "abaranosky")))
+)
 
 (defmacro rename-modeline (package-name mode new-name)
   `(eval-after-load ,package-name
@@ -427,7 +420,7 @@ Including indent-buffer, which should not be called automatically on save."
   'paredit-wrap-round-from-behind)
 ;; (key-chord-define-global "dp" 'paredit-duplicate-closest-sexp)
 
-
+(load (expand-file-name "alexb-modules.el" "~/.emacs.d"))
 
 (defun cider-p-eval-last-sexp ()
   "Evaluate the expression preceding point and `p` its value in a popup buffer."

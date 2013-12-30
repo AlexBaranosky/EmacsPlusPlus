@@ -1,0 +1,10 @@
+vendor/
+nrepl-history
+jabber*
+elpa/
+emacs-nav*
+eshell/history
+backups/
+auto-save-list/
+.cask/
+*~
