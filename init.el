@@ -270,8 +270,8 @@ Repeated invocations toggle between the two most recently open buffers."
         '(("freenode.net" "#clojure" "#emacs" "#bitcoin")))
 
   ;; ;; TODO: make alexbaranosky
-  ;; (erc :server "irc.freenode.net" :port 6667 :nick "abaranosky")
-  )
+  (when (y-or-n-p "Do you want to start ERC? ")
+    (erc :server "irc.freenode.net" :port 6667 :nick "abaranosky")))
 
 (defun define-tag-functions ()
   (defun my-ido-find-tag ()
