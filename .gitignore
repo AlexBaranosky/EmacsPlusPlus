@@ -1,3 +1,15 @@
+.DS_Store
+.mc-lists.el
+.places
+.smex-items
+ac-comphist*
+ido.last
+places
+projectile-bookmarks.eld
+projectile.cache
+recentf
+tramp
+url/cookies
 vendor/
 nrepl-history
 jabber*
