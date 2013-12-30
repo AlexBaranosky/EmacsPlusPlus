@@ -6,6 +6,7 @@
 (if (fboundp 'menu-bar-mode) (menu-bar-mode -1))
 (if (fboundp 'tool-bar-mode) (tool-bar-mode -1))
 (if (fboundp 'scroll-bar-mode) (scroll-bar-mode -1))
+(if (fboundp 'fringe-mode) (fringe-mode 0))
 
 ;; No splash screen please ... jeez
 (setq inhibit-startup-message t)
