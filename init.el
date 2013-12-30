@@ -273,23 +273,6 @@ Repeated invocations toggle between the two most recently open buffers."
   (when (y-or-n-p "Do you want to start ERC? ")
     (erc :server "irc.freenode.net" :port 6667 :nick "abaranosky")))
 
-(defun hack-clojure-test-mode-for-gui-diff ()
-  (defun clojure-test-run-tests ()
-    "Run all the tests in the current namespace using gui.diff/run-tests++."
-    (interactive)
-    (save-some-buffers nil (lambda () (equal major-mode 'clojure-mode)))
-    (message "Testing w/ Gui Diff...")
-    (if (not (clojure-in-tests-p))
-        (cider-load-file (buffer-file-name)))
-    (save-window-excursion
-      (if (not (clojure-in-tests-p))
-          (clojure-jump-to-test))
-      (clojure-test-clear)
-      (clojure-test-eval (format "(require '[gui.diff]) ;; only changes are in this string.
-                                  (gui.diff/run-tests++ '%s)"
-                                 (clojure-find-ns))
-                         #'clojure-test-get-results))))
-
 (defmacro rename-modeline (package-name mode new-name)
   `(eval-after-load ,package-name
      '(defadvice ,mode (after rename-modeline activate)
@@ -434,8 +417,6 @@ Including indent-buffer, which should not be called automatically on save."
 
 (rename-modeline "js2-mode" js2-mode "JS2")
 (rename-modeline "clojure-mode" clojure-mode "CLJ")
-
-;; (hack-clojure-test-mode-for-gui-diff)
 
 ;; (define-key magit-mode-map (kbd "W") 'magit-toggle-whitespace)
 (setq magit-highlight-whitespace nil)
