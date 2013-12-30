@@ -1,19 +1,3 @@
-(defun alexb--setup-packaging-system ()
-  (when window-system
-    (require 'package))
-  (add-to-list 'package-archives
-               '("marmalade" . "http://marmalade-repo.org/packages/") t)
-
-  (add-to-list 'load-path "~/.emacs.d")
-  (add-to-list 'load-path "~/.emacs.d/modules/alexb-erc.el")
-  (package-initialize)
-
-  (when (not package-archive-contents)
-    (package-refresh-contents)))
-
-(alexb--setup-packaging-system)
-
-;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 
 (setq package-refresh-first-time nil)
 (defun alexb-package-require (package-name)
@@ -146,7 +130,7 @@ Including indent-buffer, which should not be called automatically on save."
 (key-chord-define-global "zz" 'repeat)
 (key-chord-define-global "--" 'alexb-alexb-switch-to-previous-buffer)
 (key-chord-define-global "gp" 'rgrep)
-(key-chord-define-global "xx" 'execute-extended-command)
+(key-chord-define-global "xx" 'smex)
 (key-chord-define-global "ii" 'alexb-cursor-jump-up)
 (key-chord-define-global "kk" 'alexb-cursor-jump-down)  
 
@@ -273,3 +257,23 @@ Including indent-buffer, which should not be called automatically on save."
 ;; (load-theme 'clues)
 ;;(load-theme 'cyberpunk)
 ;; (load-theme 'deep-thought)
+
+(custom-set-variables
+ ;; custom-set-variables was added by Custom.
+ ;; If you edit it by hand, you could mess it up, so be careful.
+ ;; Your init file should contain only one such instance.
+ ;; If there is more than one, they won't work right.
+ '(ansi-color-faces-vector
+   [default bold shadow italic underline bold bold-italic bold])
+ '(ansi-color-names-vector
+   ["black" "#d55e00" "#009e73" "#f8ec59" "#0072b2" "#cc79a7" "#56b4e9" "white"])
+ '(custom-safe-themes
+   (quote
+    ("246a51f19b632c27d7071877ea99805d4f8131b0ff7acb8a607d4fd1c101e163" "1e7e097ec8cb1f8c3a912d7e1e0331caeed49fef6cff220be63bd2a6ba4cc365" "4cf3221feff536e2b3385209e9b9dc4c2e0818a69a1cdb4b522756bcdf4e00a4" "4aee8551b53a43a883cb0b7f3255d6859d766b6c5e14bcb01bed572fcbef4328" "72cc9ae08503b8e977801c6d6ec17043b55313cda34bcf0e6921f2f04cf2da56" "71b172ea4aad108801421cc5251edb6c792f3adbaecfa1c52e94e3d99634dee7" "d2622a2a2966905a5237b54f35996ca6fda2f79a9253d44793cfe31079e3c92b" "501caa208affa1145ccbb4b74b6cd66c3091e41c5bb66c677feda9def5eab19c" default)))
+ '(fci-rule-color "#383838"))
+(custom-set-faces
+ ;; custom-set-faces was added by Custom.
+ ;; If you edit it by hand, you could mess it up, so be careful.
+ ;; Your init file should contain only one such instance.
+ ;; If there is more than one, they won't work right.
+ )
