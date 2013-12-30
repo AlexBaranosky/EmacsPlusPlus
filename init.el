@@ -95,16 +95,7 @@ Repeated invocations toggle between the two most recently open buffers."
   (key-chord-define-global "gp" 'rgrep)
   (key-chord-define-global "xx" 'execute-extended-command)
 
-  (package-require 'iy-go-to-char)
-  ;;  (global-set-key (kbd "M-m") 'iy-go-to-char)
-  (key-chord-define-global ";d" 'backward-kill-word)
-
   (global-set-key (kbd "C-c C-r") 'rename-sgml-tag)
-
-  (global-set-key (kbd "M-j") 'backward-char)
-  (global-set-key (kbd "M-l") 'forward-char)
-  (global-set-key (kbd "M-i") 'previous-line)
-  (global-set-key (kbd "M-k") 'next-line)
 
   (defun cursor-jump-up ()
     (interactive)
@@ -230,7 +221,7 @@ Repeated invocations toggle between the two most recently open buffers."
   ;;(package-require 'twilight-theme)
   (package-require 'vline)
   ;; (package-require 'zenburn-theme)
-  )
+)
 
 (defun setup-assorted-emacs ()
   (add-to-list
