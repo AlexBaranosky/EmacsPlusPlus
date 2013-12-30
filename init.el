@@ -400,15 +400,6 @@ Including indent-buffer, which should not be called automatically on save."
 
 (global-set-key (kbd "C-x g") 'webjump)
 
-;; Add Urban Dictionary to webjump
-(eval-after-load "webjump"
-'(add-to-list 'webjump-sites
-              '("Urban Dictionary" .
-                [simple-query
-                 "www.urbandictionary.com"
-                 "http://www.urbandictionary.com/define.php?term="
-                 ""])))
-
 ;; Save point position between sessions
 (require 'saveplace)
 (setq-default save-place t)
