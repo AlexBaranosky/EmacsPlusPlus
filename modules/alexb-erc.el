@@ -43,17 +43,21 @@
 ;; set different dictionaries by different servers/channels
 ;;(setq erc-spelling-dictionaries '(("#emacs" "american")))
 
-;; TODO - replace this with use of notify.el
+(defun irc-alert (nick msg)
+  (if (eq system-type 'linux)
+      (shell-command-to-string
+       (format "notify-send -u critical '%s says:' '%s'" nick msg))
+    (message
+     (format "'%s says:' '%s'" nick msg))))
+
 ;; Notify my when someone mentions my nick.
 (defun call-libnotify (matched-type nick msg)
   (let* ((cmsg  (split-string (clean-message msg)))
          (nick   (first (split-string nick "!")))
          (msg    (mapconcat 'identity (rest cmsg) " ")))
-    (shell-command-to-string
-     (format "notify-send -u critical '%s says:' '%s'" nick msg))))
+    (irc-alert nick msg)))
 
-(when (eq system-type 'linux)
-  (add-hook 'erc-text-matched-hook 'call-libnotify))
+(add-hook 'erc-text-matched-hook 'call-libnotify)
 
 (defvar erc-notify-nick-alist nil
   "Alist of nicks and the last time they tried to trigger a
@@ -88,8 +92,7 @@ that can occur between two notifications.  The default is
     (when (and (erc-current-nick-p target)
                (not (erc-is-message-ctcp-and-not-action-p msg))
                (erc-notify-allowed-p nick))
-      (shell-command-to-string
-       (format "notify-send -u critical '%s says:' '%s'" nick msg))
+      (irc-alert nick msg)
       nil)))
 
 (add-hook 'erc-server-PRIVMSG-functions 'erc-notify-on-private-msg)
