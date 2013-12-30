@@ -469,9 +469,6 @@ Including indent-buffer, which should not be called automatically on save."
 
 ;; (hack-clojure-test-mode-for-gui-diff)
 
-(autoload 'yeti-mode "yeti-mode" nil t)
-(add-to-list 'auto-mode-alist '("\\.yeti$" . yeti-mode))
-
 ;; (define-key magit-mode-map (kbd "W") 'magit-toggle-whitespace)
 (setq magit-highlight-whitespace nil)
 
