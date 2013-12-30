@@ -86,6 +86,15 @@ Repeated invocations toggle between the two most recently open buffers."
   (global-set-key (kbd "S-C-<up>")    'enlarge-window)
 
   (package-require 'expand-region)
+
+  (defun cursor-jump-up ()
+    (interactive)
+    (forward-line -15))
+
+  (defun cursor-jump-down ()
+    (interactive)
+    (forward-line 15))
+
   (key-chord-define-global "jj" 'ace-jump-word-mode)
   (key-chord-define-global "jl" 'ace-jump-line-mode)
   (key-chord-define-global "jc" 'ace-jump-char-mode)
@@ -94,20 +103,10 @@ Repeated invocations toggle between the two most recently open buffers."
   (key-chord-define-global "--" 'switch-to-previous-buffer)
   (key-chord-define-global "gp" 'rgrep)
   (key-chord-define-global "xx" 'execute-extended-command)
-
+  (key-chord-define-global "ii" 'cursor-jump-up)
+  (key-chord-define-global "kk" 'cursor-jump-down)  
+  
   (global-set-key (kbd "C-c C-r") 'rename-sgml-tag)
-
-  (defun cursor-jump-up ()
-    (interactive)
-    (forward-line -4))
-
-  (global-set-key (kbd "s-<up>") 'cursor-jump-up)
-
-  (defun cursor-jump-down ()
-    (interactive)
-    (forward-line 4))
-
-  (global-set-key (kbd "s-<down>") 'cursor-jump-down)
 
   (package-require 'auto-complete)
   (global-auto-complete-mode t)
