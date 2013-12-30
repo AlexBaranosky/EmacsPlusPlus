@@ -113,123 +113,19 @@ Including indent-buffer, which should not be called automatically on save."
 ;; enable y/n answers
 (fset 'yes-or-no-p 'y-or-n-p)
 
-(alexb-package-require 'key-chord)
-(key-chord-mode 1)
-
 (global-set-key (kbd "S-C-<left>")  'shrink-window-horizontally)
 (global-set-key (kbd "S-C-<right>") 'enlarge-window-horizontally)
 (global-set-key (kbd "S-C-<down>")  'shrink-window)
 (global-set-key (kbd "S-C-<up>")    'enlarge-window)
-
-(alexb-package-require 'expand-region)
-
-(key-chord-define-global "jj" 'ace-jump-word-mode)
-(key-chord-define-global "jl" 'ace-jump-line-mode)
-(key-chord-define-global "jc" 'ace-jump-char-mode)
-(key-chord-define-global "gg" 'goto-line)
-(key-chord-define-global "zz" 'repeat)
-(key-chord-define-global "--" 'alexb-alexb-switch-to-previous-buffer)
-(key-chord-define-global "gp" 'rgrep)
-(key-chord-define-global "xx" 'smex)
-(key-chord-define-global "ii" 'alexb-cursor-jump-up)
-(key-chord-define-global "kk" 'alexb-cursor-jump-down)  
-
 (global-set-key (kbd "C-c C-r") 'rename-sgml-tag)
-
-(alexb-package-require 'auto-complete)
-(global-auto-complete-mode t)
-
-(alexb-package-require 'jabber)
-(setq jabber-nickname "Alex Baranosky")
-(setq jabber-account-list
-      '(("alexander.baranosky@gmail.com"
-         (:network-server . "talk.google.com")
-         (:connection-type . ssl))))
-
-(alexb-package-require 'subword)
-(subword-mode)
-
-(alexb-package-require 'winner)
-(winner-mode)
-
-(alexb-package-require 'textmate)
-(global-set-key (kbd "C-x M-f") 'textmate-goto-file)
-
-(alexb-package-require 'idomenu)
-(defvar push-mark-before-goto-char nil)
-(defadvice goto-char (before push-mark-first activate)
-  (when push-mark-before-goto-char
-    (push-mark)))
-(defun ido-imenu-push-mark ()
-  (interactive)
-  (let ((push-mark-before-goto-char t))
-    (idomenu)))
-(global-set-key (kbd "C-x C-i") 'idomenu)
-
-(alexb-package-require 'multiple-cursors)
-(global-set-key (kbd "C-.") 'mc/mark-next-like-this)
-(global-set-key (kbd "C-,") 'mc/mark-previous-like-this)
-(global-set-key (kbd "C-!") 'mc/mark-all-like-this)
-
-(global-set-key (kbd "C-S-c C-S-c") 'mc/edit-lines)
-
-(global-set-key (kbd "C-x C-b") 'ibuffer)
-(autoload 'ibuffer "ibuffer" "List buffers." t)
-
-(alexb-package-require 'yasnippet)
-(setq yas/prompt-functions '(yas/ido-prompt
-                             yas/completing-prompt))
-(yas/global-mode 1)
-(yas/load-directory "~/.emacs.d/snippets/clojure-mode")
-(yas/load-directory "~/.emacs.d/snippets/org-mode")
-(key-chord-define-global "yy" 'yas-insert-snippet)
-
-;; (alexb-package-require 'js2-mode)
-;; (alexb-package-require 'js2-refactor)
-;; (js2r-add-keybindings-with-prefix "C-c C-t")
-
-(alexb-package-require 'clj-refactor)
-(add-hook 'clojure-mode-hook (lambda ()
-                               (clj-refactor-mode 1)
-                               (cljr-add-keybindings-with-prefix "C-c C-t")))
-
-(show-paren-mode 1)
-
-(setq ido-enable-flex-matching t)
-(setq ido-everywhere t)
-(ido-mode 1)
-
-(alexb-package-require 'ido-hacks)
-
-(alexb-package-require 'undo-tree)
-(global-undo-tree-mode)
-
 
 (global-set-key [remap goto-line] 'alexb-goto-line-with-feedback)
 (global-set-key (kbd "C-x g") 'webjump)
 (global-set-key (kbd "C-x C-r") 'alexb-rename-current-buffer-file)
 (global-set-key (kbd "C-c n") 'alexb-cleanup-buffer)
 
-
-;; Save point position between sessions
-(alexb-package-require 'saveplace)
-(setq-default save-place t)
-(setq save-place-file (expand-file-name ".places" user-emacs-directory))
-
-(alexb-rename-modeline "js2-mode" js2-mode "JS2")
-(alexb-rename-modeline "clojure-mode" clojure-mode "CLJ")
-
+(show-paren-mode 1)
 (put 'upcase-region 'disabled nil)
-  
-(add-to-list
- 'auto-mode-alist
- '("\\.edn\\'" . clojure-mode))
-(add-to-list
- 'auto-mode-alist
- '("\\.\\(?:gemspec\\|irbrc\\|gemrc\\|rake\\|rb\\|ru\\|thor\\)\\'" . ruby-mode))
-(add-to-list
- 'auto-mode-alist
- '("\\(Capfile\\|Gemfile\\(?:\\.[a-zA-Z0-9._-]+\\)?\\|[rR]akefile\\)\\'" . ruby-mode))
 
 (when (file-exists-p "~/.zshrc")
   ;; Get zshrc into PATH
@@ -242,21 +138,14 @@ Including indent-buffer, which should not be called automatically on save."
 
 (global-auto-revert-mode t)
 ;; (global-linum-mode)
-(setq clojure-font-lock-comment-sexp t)
+
 (setq-default fill-column 80)
 (when (string-equal system-type "darwin")
   (setq mac-option-modifier 'meta)
   (setq mac-command-modifier 'meta)
   (set-default-font "-apple-inconsolata-medium-r-normal--14-180-72-72-m-180-iso8859-1"))
 
-
 (setq ring-bell-function (lambda () (message "*beep*")))
-;; (load-theme 'zenburn)
-(load-theme 'sanityinc-solarized-dark)
-;; (load-theme 'twilight-theme)
-;; (load-theme 'clues)
-;;(load-theme 'cyberpunk)
-;; (load-theme 'deep-thought)
 
 (custom-set-variables
  ;; custom-set-variables was added by Custom.

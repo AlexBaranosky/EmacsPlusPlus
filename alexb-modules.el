@@ -7,3 +7,5 @@
 (load-module "alexb-magit.el")
 (load-module "alexb-paredit.el")
 
+(load-module "alexb-catchall.el")
+
