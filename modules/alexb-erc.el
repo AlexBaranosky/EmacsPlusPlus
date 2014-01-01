@@ -48,16 +48,14 @@
       (shell-command-to-string
        (format "notify-send -u critical '%s says:' '%s'" nick msg))
     (message
-     (format "'%s says:' '%s'" nick msg))))
+     (format "%s says: %s" nick msg))))
 
-;; Notify my when someone mentions my nick.
-(defun call-libnotify (matched-type nick msg)
-  (let* ((cmsg  (split-string (clean-message msg)))
-         (nick   (first (split-string nick "!")))
-         (msg    (mapconcat 'identity (rest cmsg) " ")))
+(defun notify-on-text-nick-match (matched-type nick erc-message)
+  (let* ((nick (car (split-string nick "!")))
+         (msg (mapconcat 'identity (cdr (split-string erc-message ": ")) " ")))
     (irc-alert nick msg)))
 
-(add-hook 'erc-text-matched-hook 'call-libnotify)
+(add-hook 'erc-text-matched-hook 'notify-on-text-nick-match)
 
 (defvar erc-notify-nick-alist nil
   "Alist of nicks and the last time they tried to trigger a
