@@ -11,70 +11,80 @@
 
 ;;;;;
 
-(alexb-package-require 'cider)
-(alexb-package-require 'ac-nrepl)
+(defvar packages '(ac-nrepl
+                   ace-jump-mode
+                   all
+                   alpha
+                   auto-complete
+                   cc-mode
+                   cider
+                   cl
+                   clj-refactor
+                   clojure-mode
+                   clojure-test-mode
+                   col-highlight
+                   compile
+                   crosshairs
+                   dash
+                   etags-select
+                   etags-table
+                   expand-region
+                   fill-column-indicator
+                   fuzzy
+                   fuzzy-match
+                   go-mode
+                   haskell-mode
+                   highlight-parentheses
+                   highlight-symbol
+                   highline
+                   hl-sexp
+                   idle-highlight
+                   ido-hacks
+                   idomenu
+                   jabber
+                   key-chord
+                   markdown-mode
+                   maxframe
+                   mic-paren
+                   multiple-cursors
+                   nav
+                   projectile
+                   protobuf-mode
+                   rainbow-delimiters
+                   s
+                   saveplace
+                   scala-mode
+                   slamhound
+                   starter-kit
+                   starter-kit-bindings
+                   starter-kit-eshell
+                   starter-kit-lisp
+                   subword
+                   undo-tree
+                   vline
+                   winner
+                   yasnippet
 
-(alexb-package-require 'clojure-mode)
-(alexb-package-require 'clojure-test-mode)
+                   ;; color-theme-sanityinc-solarized
+                   ;; js2-mode
+                   ;; js2-refactor
+                   ;; clues-theme
+                   ;; cyberpunk-theme
+                   ;; deep-thought-theme
+                   ;; twilight-theme
+                   ;; zenburn-theme
+                   ))
 
-(alexb-package-require 'starter-kit)
-(alexb-package-require 'starter-kit-bindings)
-(alexb-package-require 'starter-kit-eshell)
-(alexb-package-require 'starter-kit-lisp)
-
-(alexb-package-require 'ace-jump-mode)
-(alexb-package-require 'all)
-(alexb-package-require 'alpha)
-(alexb-package-require 'cc-mode)
-(alexb-package-require 'cl)
-(alexb-package-require 'col-highlight)
-(alexb-package-require 'compile)
-;; (alexb-package-require 'color-theme-sanityinc-solarized)
-
-(alexb-package-require 'crosshairs)
-(alexb-package-require 'dash)
-(alexb-package-require 'etags-select)
-(alexb-package-require 'etags-table)
-(alexb-package-require 'fill-column-indicator)
-(alexb-package-require 'fuzzy)
-(alexb-package-require 'fuzzy-match)
-(alexb-package-require 'go-mode)
-(alexb-package-require 'haskell-mode)
-(alexb-package-require 'highlight-parentheses)
-(alexb-package-require 'highlight-symbol)
-(alexb-package-require 'highline)
-(alexb-package-require 'hl-sexp)
-(alexb-package-require 'idle-highlight)
-(alexb-package-require 'rainbow-delimiters)
-(alexb-package-require 'markdown-mode)
-(alexb-package-require 'maxframe)
-(alexb-package-require 'mic-paren)
-(alexb-package-require 'nav)
-(alexb-package-require 's)
-(alexb-package-require 'scala-mode)
-(alexb-package-require 'slamhound)
-(alexb-package-require 'projectile)
-(alexb-package-require 'protobuf-mode)
-;; (alexb-package-require 'clues-theme)
-;;(alexb-package-require 'cyberpunk-theme)
-;; (alexb-package-require 'deep-thought-theme)
-;;(alexb-package-require 'twilight-theme)
-(alexb-package-require 'vline)
-;; (alexb-package-require 'zenburn-theme)
+(mapcar (lambda (package)
+          (alexb-package-require package))
+        packages)
 
 
-(alexb-package-require 'expand-region)
-(alexb-package-require 'key-chord)
-(alexb-package-require 'auto-complete)
-(alexb-package-require 'jabber)
-(alexb-package-require 'subword)
-(alexb-package-require 'winner)
-(alexb-package-require 'idomenu)
-(alexb-package-require 'multiple-cursors)
-(alexb-package-require 'yasnippet)
-(alexb-package-require 'clj-refactor)
-(alexb-package-require 'ido-hacks)
-(alexb-package-require 'undo-tree)
-;; (alexb-package-require 'js2-mode)
-;; (alexb-package-require 'js2-refactor)
-(alexb-package-require 'saveplace)
+
+
+
+
+
+
+
+
