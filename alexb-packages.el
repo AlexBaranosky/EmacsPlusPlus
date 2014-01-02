@@ -33,6 +33,7 @@
                    fuzzy
                    fuzzy-match
                    go-mode
+                   guru-mode
                    haskell-mode
                    highlight-parentheses
                    highlight-symbol
