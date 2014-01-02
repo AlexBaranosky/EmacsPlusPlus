@@ -12,6 +12,8 @@
 (add-hook 'cider-mode-hook 'ac-nrepl-setup)
 (setq clojure-font-lock-comment-sexp t)
 
+
+
 (defun cider-p-eval-last-sexp ()
   "Evaluate the expression preceding point and `p` its value in a popup buffer."
   (interactive)
@@ -21,5 +23,28 @@
                         (cider-popup-eval-out-handler result-buffer)
                         (cider-current-ns))))
 
-(define-key cider-mode-map (kbd "C-c C-q") 'cider-p-eval-last-sexp)
+(defun cider-eval++ (str)
+  (cider-eval-sync str (cider-current-ns)))
 
+(defun alembic ()
+  (interactive)
+  (cider-eval++ "(require '[alembic.still :as alembic])
+                 (alembic/load-project)"))
+
+(defun refresh ()
+  (interactive)
+  (cider-eval++ "(require '[clojure.tools.namespace.repl :refer [refresh]])
+                 (refresh)"))
+
+(defun gui-diff ()
+  (interactive)
+  (cider-eval++ "(require '[gui.diff :refer :all])"))
+
+(defun refresh-nrepl ()
+  (interactive)
+  (refresh)
+  (gui-diff))
+
+(define-key cider-mode-map (kbd "C-c C-q") 'cider-p-eval-last-sexp)
+(define-key cider-mode-map (kbd "C-c C-a") 'alembic)
+(define-key cider-mode-map (kbd "C-c C-f") 'refresh-nrepl)

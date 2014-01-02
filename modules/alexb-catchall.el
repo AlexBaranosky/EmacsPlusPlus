@@ -6,7 +6,7 @@
 (key-chord-define-global "jc" 'ace-jump-char-mode)
 (key-chord-define-global "gg" 'goto-line)
 (key-chord-define-global "zz" 'repeat)
-(key-chord-define-global "--" 'alexb-switch-to-previous-buffer)
+(key-chord-define-global "uu" 'alexb-switch-to-previous-buffer)
 (key-chord-define-global "gp" 'rgrep)
 (key-chord-define-global "xx" 'smex)
 (key-chord-define-global "ii" 'alexb-cursor-jump-up)
