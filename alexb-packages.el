@@ -75,9 +75,8 @@
                    ;; zenburn-theme
                    ))
 
-(mapcar (lambda (package)
-          (alexb-package-require package))
-        packages)
+(dolist (pkg packages)
+  (alexb-package-require pkg))
 
 
 
