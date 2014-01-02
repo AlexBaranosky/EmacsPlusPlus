@@ -26,10 +26,11 @@
 (defun cider-eval++ (str)
   (cider-eval-sync str (cider-current-ns)))
 
-(defun alembic ()
-  (interactive)
-  (cider-eval++ "(require '[alembic.still :as alembic])
-                 (alembic/load-project)"))
+(defun alembic-distill (lein-dep-vector)
+  (interactive "sLeiningen dependency vector: ")
+  (cider-eval++ (format "(require '[alembic.still :as alembic])
+                         (alembic/distill '%s)"
+                        lein-dep-vector)))
 
 (defun refresh ()
   (interactive)
@@ -46,5 +47,5 @@
   (gui-diff))
 
 (define-key cider-mode-map (kbd "C-c C-q") 'cider-p-eval-last-sexp)
-(define-key cider-mode-map (kbd "C-c C-a") 'alembic)
+(define-key cider-mode-map (kbd "C-c C-a") 'alembic-distill)
 (define-key cider-mode-map (kbd "C-c C-f") 'refresh-nrepl)
