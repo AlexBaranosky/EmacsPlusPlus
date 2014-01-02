@@ -20,7 +20,7 @@
 
 (subword-mode)
 (winner-mode)
-(global-set-key (kbd "C-x M-f") 'textmate-goto-file)
+(global-set-key (kbd "C-x M-f") 'projectile-find-file)
 (defvar push-mark-before-goto-char nil)
 (defadvice goto-char (before push-mark-first activate)
   (when push-mark-before-goto-char

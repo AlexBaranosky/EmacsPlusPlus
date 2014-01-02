@@ -69,7 +69,6 @@
 (alexb-package-require 'jabber)
 (alexb-package-require 'subword)
 (alexb-package-require 'winner)
-(alexb-package-require 'textmate)
 (alexb-package-require 'idomenu)
 (alexb-package-require 'multiple-cursors)
 (alexb-package-require 'yasnippet)
