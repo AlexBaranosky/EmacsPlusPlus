@@ -1,6 +1,6 @@
 (global-auto-complete-mode t)
 
-(guru-mode +1)
+(guru-mode -1)
 
 (key-chord-mode 1)
 (key-chord-define-global "jj" 'ace-jump-word-mode)

@@ -13,8 +13,6 @@
 
 (defvar packages '(ac-nrepl
                    ace-jump-mode
-                   all
-                   alpha
                    auto-complete
                    cc-mode
                    cider
@@ -45,13 +43,11 @@
                    jabber
                    key-chord
                    markdown-mode
-                   maxframe
                    mic-paren
                    multiple-cursors
                    nav
                    projectile
                    protobuf-mode
-                   rainbow-delimiters
                    s
                    saveplace
                    scala-mode
@@ -62,7 +58,6 @@
                    starter-kit-lisp
                    subword
                    undo-tree
-                   vline
                    winner
                    yasnippet
 
