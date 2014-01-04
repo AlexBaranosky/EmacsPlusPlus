@@ -14,7 +14,10 @@
 (key-chord-define-global "gp" 'rgrep)
 (key-chord-define-global "xx" 'smex)
 (key-chord-define-global "ii" 'cursor-jump-up)
-(key-chord-define-global "kk" 'cursor-jump-down)  
+(key-chord-define-global "kk" 'cursor-jump-down)
+(key-chord-define-global ",." 'er/expand-region)
+(key-chord-define-global "dc" 'iy-go-to-char-backward)
+(key-chord-define-global "fv" 'iy-go-to-char)
 
 (setq jabber-nickname "Alex Baranosky")
 (setq jabber-account-list
