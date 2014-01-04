@@ -72,7 +72,7 @@
                    ))
 
 (dolist (pkg packages)
-  (alexb-package-require pkg))
+  (package-require pkg))
 
 
 

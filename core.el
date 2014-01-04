@@ -1,6 +1,6 @@
 
 (setq package-refresh-first-time nil)
-(defun alexb-package-require (package-name)
+(defun package-require (package-name)
   "tries to require. If it fails, it retrieves the package and
    tries to require again (y benzap on #emacs)"
   (if (not (require package-name nil t))
@@ -12,12 +12,12 @@
         (package-install package-name)
         (require package-name nil t))))
 
-(defmacro alexb-rename-modeline (package-name mode new-name)
+(defmacro rename-modeline (package-name mode new-name)
   `(eval-after-load ,package-name
-     '(defadvice ,mode (after alexb-rename-modeline activate)
+     '(defadvice ,mode (after rename-modeline activate)
         (setq mode-name ,new-name))))
 
-(defun alexb-rotate-windows ()
+(defun rotate-windows ()
   "Rotate your windows"
   (interactive)
   (cond ((not (> (count-windows)1))
@@ -42,26 +42,26 @@
              (set-window-start w2 s1)
              (setq i (1+ i)))))))
 
-(defun alexb-cleanup-buffer-safe ()
+(defun cleanup-buffer-safe ()
   "Perform a bunch of safe operations on the whitespace content of a buffer.
-Does not indent buffer, because it is used for a before-save-hook, and that
-might be bad."
+   Does not indent buffer, because it is used for a before-save-hook, and that
+   might be bad."
   (interactive)
   (untabify (point-min) (point-max))
   (delete-trailing-whitespace)
   (set-buffer-file-coding-system 'utf-8))
 
 ;; Various superfluous white-space. Just say no.
-;; (add-hook 'before-save-hook 'alexb-cleanup-buffer-safe)
+;; (add-hook 'before-save cleanup-buffer-safe)
 
-(defun alexb-cleanup-buffer ()
+(defun cleanup-buffer ()
   "Perform a bunch of operations on the whitespace content of a buffer.
 Including indent-buffer, which should not be called automatically on save."
   (interactive)
-  (alexb-cleanup-buffer-safe)
+  (cleanup-buffer-safe)
   (indent-region (point-min) (point-max)))
 
-(defun alexb-rename-current-buffer-file ()
+(defun rename-current-buffer-file ()
   "Renames current buffer and file it is visiting."
   (interactive)
   (let ((name (buffer-name))
@@ -78,7 +78,7 @@ Including indent-buffer, which should not be called automatically on save."
           (message "File '%s' successfully renamed to '%s'"
                    name (file-name-nondirectory new-name)))))))
 
-(defun alexb-goto-line-with-feedback ()
+(defun goto-line-with-feedback ()
   "Show line numbers temporarily, while prompting for the line number input"
   (interactive)
   (unwind-protect
@@ -87,15 +87,15 @@ Including indent-buffer, which should not be called automatically on save."
         (goto-line (read-number "Goto line: ")))
     (linum-mode -1)))
 
-(defun alexb-cursor-jump-up ()
+(defun cursor-jump-up ()
   (interactive)
   (forward-line -15))
 
-(defun alexb-cursor-jump-down ()
+(defun cursor-jump-down ()
   (interactive)
   (forward-line 15))
 
-(defun alexb-switch-to-previous-buffer ()
+(defun switch-to-previous-buffer ()
   "Switch to previously open buffer.
    Repeated invocations toggle between the two most recently open buffers."
   (interactive)
@@ -119,10 +119,10 @@ Including indent-buffer, which should not be called automatically on save."
 (global-set-key (kbd "S-C-<up>")    'enlarge-window)
 (global-set-key (kbd "C-c C-r") 'rename-sgml-tag)
 
-(global-set-key [remap goto-line] 'alexb-goto-line-with-feedback)
+(global-set-key [remap goto-line] 'goto-line-with-feedback)
 (global-set-key (kbd "C-x g") 'webjump)
-(global-set-key (kbd "C-x C-r") 'alexb-rename-current-buffer-file)
-(global-set-key (kbd "C-c n") 'alexb-cleanup-buffer)
+(global-set-key (kbd "C-x C-r") 'rename-current-buffer-file)
+(global-set-key (kbd "C-c n") 'cleanup-buffer)
 
 (show-paren-mode 1)
 (put 'upcase-region 'disabled nil)
@@ -145,7 +145,7 @@ Including indent-buffer, which should not be called automatically on save."
   (setq mac-command-modifier 'meta)
   (set-default-font "-apple-inconsolata-medium-r-normal--14-180-72-72-m-180-iso8859-1"))
 
-(setq ring-bell-function (lambda () (message "*beep*")))
+(setq ring-bell-function (lambda () (message "*bell*")))
 
 (custom-set-variables
  ;; custom-set-variables was added by Custom.

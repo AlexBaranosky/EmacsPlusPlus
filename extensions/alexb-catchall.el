@@ -10,11 +10,11 @@
 (key-chord-define-global "jc" 'ace-jump-char-mode)
 (key-chord-define-global "gg" 'goto-line)
 (key-chord-define-global "zz" 'repeat)
-(key-chord-define-global "uu" 'alexb-switch-to-previous-buffer)
+(key-chord-define-global "uu" 'switch-to-previous-buffer)
 (key-chord-define-global "gp" 'rgrep)
 (key-chord-define-global "xx" 'smex)
-(key-chord-define-global "ii" 'alexb-cursor-jump-up)
-(key-chord-define-global "kk" 'alexb-cursor-jump-down)  
+(key-chord-define-global "ii" 'cursor-jump-up)
+(key-chord-define-global "kk" 'cursor-jump-down)  
 
 (setq jabber-nickname "Alex Baranosky")
 (setq jabber-account-list
@@ -63,8 +63,8 @@
 (setq-default save-place t)
 (setq save-place-file (expand-file-name ".places" user-emacs-directory))
 
-(alexb-rename-modeline "js2-mode" js2-mode "JS2")
-(alexb-rename-modeline "clojure-mode" clojure-mode "CLJ")
+(rename-modeline "js2-mode" js2-mode "JS2")
+(rename-modeline "clojure-mode" clojure-mode "CLJ")
   
 (add-to-list
  'auto-mode-alist

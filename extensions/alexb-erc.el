@@ -1,8 +1,8 @@
-(alexb-package-require 'erc)
-(alexb-package-require 'erc-log)
-(alexb-package-require 'erc-notify)
-(alexb-package-require 'erc-spelling)
-(alexb-package-require 'erc-autoaway)
+(package-require 'erc)
+(package-require 'erc-log)
+(package-require 'erc-notify)
+(package-require 'erc-spelling)
+(package-require 'erc-autoaway)
 
 ;; Interpret mIRC-style color commands in IRC chats
 (setq erc-interpret-mirc-color t)
@@ -108,7 +108,7 @@ that can occur between two notifications.  The default is
 ;; utf-8 always and forever
 (setq erc-server-coding-system '(utf-8 . utf-8))
 
-(defun alexb-start-erc ()
+(defun start-erc ()
   (interactive)
   ;; ;; TODO: make alexbaranosky
   (when (y-or-n-p "Do you want to start ERC? ")
@@ -120,7 +120,7 @@ that can occur between two notifications.  The default is
          (lambda (x) (and (erc-server-buffer-p x) x))
          (buffer-list))))
 
-(defun alexb-stop-irc ()
+(defun stop-irc ()
   "Disconnects from all irc servers"
   (interactive)
   (dolist (buffer (filter-server-buffers))
@@ -128,7 +128,7 @@ that can occur between two notifications.  The default is
     (with-current-buffer buffer
       (erc-quit-server "Asta la vista"))))
 
-(alexb-start-erc)
+(start-erc)
 
-(provide 'alexb-erc)
+(provide 'erc)
 
