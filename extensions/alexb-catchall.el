@@ -18,12 +18,13 @@
 (key-chord-define-global ",." 'er/expand-region)
 (key-chord-define-global "dc" 'iy-go-to-char-backward)
 (key-chord-define-global "fv" 'iy-go-to-char)
+(key-chord-define-global "gm" 'guru-mode)
 
 (setq jabber-nickname "Alex Baranosky")
 (setq jabber-account-list
       '(("alexander.baranosky@gmail.com"
          (:network-server . "talk.google.com")
-         (:connection-type . ssl))))
+         (:connection-type . ssl))))          
 
 (subword-mode)
 (winner-mode)
@@ -53,14 +54,11 @@
 
 ;; (js2r-add-keybindings-with-prefix "C-c C-t")
 
-
-
 (setq ido-enable-flex-matching t)
 (setq ido-everywhere t)
 (ido-mode 1)
 
 (global-undo-tree-mode)
-
 
 ;; Save point position between sessions
 (setq-default save-place t)
@@ -68,6 +66,7 @@
 
 (rename-modeline "js2-mode" js2-mode "JS2")
 (rename-modeline "clojure-mode" clojure-mode "CLJ")
+;; (rename-modeline "emacs-lisp-mode" emacs-lisp-mode "ELisp") ;; TODO: does it work?
   
 (add-to-list
  'auto-mode-alist
@@ -75,8 +74,6 @@
 (add-to-list
  'auto-mode-alist
  '("\\(Capfile\\|Gemfile\\(?:\\.[a-zA-Z0-9._-]+\\)?\\|[rR]akefile\\)\\'" . ruby-mode))
-
-
 
 
 ;; (load-theme 'zenburn)

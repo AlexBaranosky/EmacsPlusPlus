@@ -30,6 +30,7 @@
                    fill-column-indicator
                    fuzzy
                    fuzzy-match
+                   gist
                    go-mode
                    guru-mode
                    haskell-mode
@@ -73,13 +74,3 @@
 
 (dolist (pkg packages)
   (package-require pkg))
-
-
-
-
-
-
-
-
-
-
