@@ -51,15 +51,25 @@
   (delete-trailing-whitespace)
   (set-buffer-file-coding-system 'utf-8))
 
-;; Various superfluous white-space. Just say no.
-;; (add-hook 'before-save cleanup-buffer-safe)
-
 (defun cleanup-buffer ()
   "Perform a bunch of operations on the whitespace content of a buffer.
 Including indent-buffer, which should not be called automatically on save."
   (interactive)
   (cleanup-buffer-safe)
   (indent-region (point-min) (point-max)))
+
+;; (add-hook 'prog-mode (lambda ()
+;;                        (add-hook 'before-save 'cleanup-buffer nil t)))
+
+;; TODO: delete if the above works
+;; Various superfluous white-space. Just say no.
+;; (add-hook 'before-save cleanup-buffer-safe)
+
+(defun projectile-cleanup-project-buffers ()
+  (interactive)
+  (dolist (buffer (projectile-project-buffer-names))
+    (with-current-buffer buffer
+      (esk-cleanup-buffer))))
 
 (defun rename-current-buffer-file ()
   "Renames current buffer and file it is visiting."
@@ -123,6 +133,7 @@ Including indent-buffer, which should not be called automatically on save."
 (global-set-key (kbd "C-x g") 'webjump)
 (global-set-key (kbd "C-x C-r") 'rename-current-buffer-file)
 (global-set-key (kbd "C-c n") 'cleanup-buffer)
+(global-set-key (kbd "C-c N") 'projectile-cleanup-project-buffers)
 
 (show-paren-mode 1)
 (put 'upcase-region 'disabled nil)
