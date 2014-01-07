@@ -31,17 +31,12 @@
     (mkdir erc-log-channels-directory t))
 
 (setq erc-save-buffer-on-part t)
-;; FIXME - this advice is wrong and is causing problems on Emacs exit
-;; (defadvice save-buffers-kill-emacs (before save-logs (arg) activate)
-;;   (save-some-buffers t (lambda () (when (eq major-mode 'erc-mode) t))))
 
 ;; truncate long irc buffers
 (erc-truncate-mode +1)
 
 ;; enable spell checking
 (erc-spelling-mode 1)
-;; set different dictionaries by different servers/channels
-;;(setq erc-spelling-dictionaries '(("#emacs" "american")))
 
 (defun irc-alert (nick msg)
   (if (eq system-type 'linux)
@@ -102,7 +97,7 @@ that can occur between two notifications.  The default is
 
 (setq erc-auto-reconnect t)
 (setq erc-autojoin-channels-alist
-      '(("freenode.net" "#clojure" "#emacs" "#bitcoin")))
+      '(("freenode.net" "#clojure" "#emacs" "#haskell" "#bitcoin")))
 
 
 ;; utf-8 always and forever

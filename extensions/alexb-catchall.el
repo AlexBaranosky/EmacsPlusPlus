@@ -1,8 +1,8 @@
 (global-auto-complete-mode t)
 
 
-(add-hook 'prog-mode-hook (lambda ()
-                            (guru-mode +1)))
+;; (add-hook 'prog-mode-hook (lambda ()
+;;                             (guru-mode +1)))
 
 (key-chord-mode 1)
 (key-chord-define-global "jj" 'ace-jump-word-mode)

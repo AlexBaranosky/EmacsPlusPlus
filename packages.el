@@ -30,6 +30,7 @@
                    fill-column-indicator
                    fuzzy
                    fuzzy-match
+                   ghc
                    gist
                    go-mode
                    guru-mode
@@ -52,6 +53,7 @@
                    s
                    saveplace
                    scala-mode
+                   ;; scion-mode ;; TODO...
                    slamhound
                    starter-kit
                    starter-kit-bindings
