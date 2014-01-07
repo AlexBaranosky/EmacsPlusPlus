@@ -68,8 +68,10 @@ Including indent-buffer, which should not be called automatically on save."
 (defun projectile-cleanup-project-buffers ()
   (interactive)
   (dolist (buffer (projectile-project-buffer-names))
-    (with-current-buffer buffer
-      (esk-cleanup-buffer))))
+    (condition-case nil
+        (with-current-buffer buffer
+          (esk-cleanup-buffer))
+      (buffer-read-only nil))))
 
 (defun rename-current-buffer-file ()
   "Renames current buffer and file it is visiting."
