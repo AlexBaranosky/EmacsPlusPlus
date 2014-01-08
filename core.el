@@ -73,6 +73,28 @@ Including indent-buffer, which should not be called automatically on save."
           (esk-cleanup-buffer))
       (buffer-read-only nil))))
 
+(defun cleanup-file (filename)
+  (interactive "sFile: ")
+  (find-file filename)
+  (let ((name (buffer-name))
+        (filename (buffer-file-name)))
+    (if (not (and filename (file-exists-p filename)))
+        (error "Buffer '%s' is not visiting a file!" name)
+      (progn
+        (esk-cleanup-buffer)
+        (save-buffer)))))
+
+(defun projectile-current-project-file-full-paths ()
+  (let ((root (projectile-project-root)))
+    (mapcar (lambda (filename)
+              (expand-file-name filename root))
+            (projectile-current-project-files))))
+
+(defun projectile-cleanup-project-files ()
+  (interactive)
+  (dolist (filename (projectile-current-project-file-full-paths))
+    (cleanup-file filename)))
+
 (defun rename-current-buffer-file ()
   "Renames current buffer and file it is visiting."
   (interactive)
