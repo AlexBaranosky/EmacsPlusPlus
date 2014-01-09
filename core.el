@@ -154,10 +154,25 @@ Including indent-buffer, which should not be called automatically on save."
 (global-set-key (kbd "C-c C-r") 'rename-sgml-tag)
 
 (global-set-key [remap goto-line] 'goto-line-with-feedback)
-(global-set-key (kbd "C-x g") 'webjump)
 (global-set-key (kbd "C-x C-r") 'rename-current-buffer-file)
 (global-set-key (kbd "C-c n") 'cleanup-buffer)
 (global-set-key (kbd "C-c N") 'projectile-cleanup-project-buffers)
+(global-set-key (kbd "C-x g") 'webjump)
+
+(eval-after-load "webjump"
+  '(progn
+     (add-to-list 'webjump-sites
+                  '("Hoogle" .
+                    [simple-query
+                     "http://www.haskell.org/hoogle/"
+                     "http://www.haskell.org/hoogle/?hoogle="
+                     ""]))
+     (add-to-list 'webjump-sites
+                  '("Clojure Symbols" .
+                    [simple-query
+                     "http://symbolhound.com"
+                     "http://symbolhound.com/?q=clojure+"
+                     ""]))))
 
 (show-paren-mode 1)
 (put 'upcase-region 'disabled nil)
