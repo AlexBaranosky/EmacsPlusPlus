@@ -1,5 +1,6 @@
 (when window-system
   (require 'package))
+
 (add-to-list 'package-archives
              '("marmalade" . "http://marmalade-repo.org/packages/") t)
 
@@ -26,7 +27,6 @@
                    dash
                    etags-select
                    etags-table
-                   evernote-mode
                    expand-region
                    fill-column-indicator
                    fuzzy
