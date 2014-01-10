@@ -5,8 +5,10 @@
 (load-extension "alexb-clojure.el")
 (load-extension "alexb-erc.el")
 (load-extension "alexb-haskell.el")
+(load-extension "alexb-ido.el")
 (load-extension "alexb-magit.el")
 (load-extension "alexb-paredit.el")
+(load-extension "alexb-projectile.el")
 
 (load-extension "alexb-catchall.el")
 

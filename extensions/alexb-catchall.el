@@ -1,5 +1,8 @@
 (global-auto-complete-mode t)
-
+(show-paren-mode 1)
+(subword-mode)
+(winner-mode)
+(global-undo-tree-mode)
 
 ;; (add-hook 'prog-mode-hook (lambda ()
 ;;                             (guru-mode +1)))
@@ -14,10 +17,8 @@
 (key-chord-define-global "ii" 'cursor-jump-up)
 (key-chord-define-global "kk" 'cursor-jump-down)
 (key-chord-define-global ",." 'er/expand-region)
-(key-chord-define-global "dc" 'iy-go-to-char-backward)
-(key-chord-define-global "fv" 'iy-go-to-char)
-(key-chord-define-global "xx" 'iy-go-to-char-backward)
-(key-chord-define-global "vv" 'iy-go-to-char)
+(key-chord-define-global "kl" 'iy-go-to-char-backward)
+(key-chord-define-global "jk" 'iy-go-to-char)
 (key-chord-define-global "gm" 'guru-mode)
 
 (setq jabber-nickname "Alex Baranosky")
@@ -26,22 +27,11 @@
          (:network-server . "talk.google.com")
          (:connection-type . ssl))))          
 
-(subword-mode)
-(winner-mode)
-(global-set-key (kbd "C-x M-f") 'projectile-find-file)
-
 (defvar push-mark-before-goto-char nil)
 
 (defadvice goto-char (before push-mark-first activate)
   (when push-mark-before-goto-char
     (push-mark)))
-
-(defun ido-imenu-push-mark ()
-  (interactive)
-  (let ((push-mark-before-goto-char t))
-    (idomenu)))
-
-(global-set-key (kbd "C-x C-i") 'idomenu)
 
 (global-set-key (kbd "C-.") 'mc/mark-next-like-this)
 (global-set-key (kbd "C-,") 'mc/mark-previous-like-this)
@@ -57,12 +47,6 @@
 (key-chord-define-global "yy" 'yas-insert-snippet)
 
 ;; (js2r-add-keybindings-with-prefix "C-c C-t")
-
-(setq ido-enable-flex-matching t)
-(setq ido-everywhere t)
-(ido-mode 1)
-
-(global-undo-tree-mode)
 
 ;; Save point position between sessions
 (setq-default save-place t)

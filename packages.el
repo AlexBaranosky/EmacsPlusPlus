@@ -26,6 +26,7 @@
                    dash
                    etags-select
                    etags-table
+                   evernote-mode
                    expand-region
                    fill-column-indicator
                    fuzzy

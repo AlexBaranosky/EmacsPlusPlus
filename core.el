@@ -65,13 +65,6 @@ Including indent-buffer, which should not be called automatically on save."
 ;; Various superfluous white-space. Just say no.
 ;; (add-hook 'before-save cleanup-buffer-safe)
 
-(defun projectile-cleanup-project-buffers ()
-  (interactive)
-  (dolist (buffer (projectile-project-buffer-names))
-    (condition-case nil
-        (with-current-buffer buffer
-          (esk-cleanup-buffer))
-      (buffer-read-only nil))))
 
 (defun cleanup-file (filename)
   (interactive "sFile: ")
@@ -83,17 +76,6 @@ Including indent-buffer, which should not be called automatically on save."
       (progn
         (esk-cleanup-buffer)
         (save-buffer)))))
-
-(defun projectile-current-project-file-full-paths ()
-  (let ((root (projectile-project-root)))
-    (mapcar (lambda (filename)
-              (expand-file-name filename root))
-            (projectile-current-project-files))))
-
-(defun projectile-cleanup-project-files ()
-  (interactive)
-  (dolist (filename (projectile-current-project-file-full-paths))
-    (cleanup-file filename)))
 
 (defun rename-current-buffer-file ()
   "Renames current buffer and file it is visiting."
@@ -156,7 +138,6 @@ Including indent-buffer, which should not be called automatically on save."
 (global-set-key [remap goto-line] 'goto-line-with-feedback)
 (global-set-key (kbd "C-x C-r") 'rename-current-buffer-file)
 (global-set-key (kbd "C-c n") 'cleanup-buffer)
-(global-set-key (kbd "C-c N") 'projectile-cleanup-project-buffers)
 (global-set-key (kbd "C-x g") 'webjump)
 
 (eval-after-load "webjump"
@@ -174,7 +155,6 @@ Including indent-buffer, which should not be called automatically on save."
                      "http://symbolhound.com/?q=clojure+"
                      ""]))))
 
-(show-paren-mode 1)
 (put 'upcase-region 'disabled nil)
 
 (when (file-exists-p "~/.zshrc")
