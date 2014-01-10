@@ -9,15 +9,15 @@
 (key-chord-define-global "jl" 'ace-jump-line-mode)
 (key-chord-define-global "jc" 'ace-jump-char-mode)
 (key-chord-define-global "gg" 'goto-line)
-(key-chord-define-global "zz" 'repeat)
 (key-chord-define-global "uu" 'switch-to-previous-buffer)
 (key-chord-define-global "gp" 'rgrep)
-(key-chord-define-global "xx" 'smex)
 (key-chord-define-global "ii" 'cursor-jump-up)
 (key-chord-define-global "kk" 'cursor-jump-down)
 (key-chord-define-global ",." 'er/expand-region)
 (key-chord-define-global "dc" 'iy-go-to-char-backward)
 (key-chord-define-global "fv" 'iy-go-to-char)
+(key-chord-define-global "xx" 'iy-go-to-char-backward)
+(key-chord-define-global "vv" 'iy-go-to-char)
 (key-chord-define-global "gm" 'guru-mode)
 
 (setq jabber-nickname "Alex Baranosky")
@@ -29,14 +29,18 @@
 (subword-mode)
 (winner-mode)
 (global-set-key (kbd "C-x M-f") 'projectile-find-file)
+
 (defvar push-mark-before-goto-char nil)
+
 (defadvice goto-char (before push-mark-first activate)
   (when push-mark-before-goto-char
     (push-mark)))
+
 (defun ido-imenu-push-mark ()
   (interactive)
   (let ((push-mark-before-goto-char t))
     (idomenu)))
+
 (global-set-key (kbd "C-x C-i") 'idomenu)
 
 (global-set-key (kbd "C-.") 'mc/mark-next-like-this)
