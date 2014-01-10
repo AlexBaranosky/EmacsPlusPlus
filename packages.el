@@ -4,6 +4,7 @@
                '("marmalade" . "http://marmalade-repo.org/packages/") t))
 
 (add-to-list 'load-path "~/.emacs.d")
+(add-to-list 'load-path "~/.emacs.d/extensions")
 (package-initialize)
 
 (when (not package-archive-contents)

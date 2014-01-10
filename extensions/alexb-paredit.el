@@ -32,3 +32,5 @@
 (define-key paredit-mode-map (kbd "M-)")
   'paredit-wrap-round-from-behind)
 ;; (key-chord-define-global "dp" 'paredit-duplicate-closest-sexp)
+
+(provide 'alexb-paredit)

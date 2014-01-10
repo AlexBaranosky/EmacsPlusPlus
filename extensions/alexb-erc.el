@@ -126,5 +126,4 @@ that can occur between two notifications.  The default is
 (when (y-or-n-p "Do you want to start ERC? ")
   (start-erc))
 
-(provide 'erc)
-
+(provide 'alexb-erc)

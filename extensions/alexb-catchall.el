@@ -71,3 +71,4 @@
 ;;(load-theme 'cyberpunk)
 ;; (load-theme 'deep-thought)
 
+(provide 'alexb-catchall)

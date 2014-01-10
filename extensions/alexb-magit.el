@@ -17,3 +17,5 @@
 
 ;; (define-key magit-mode-map (kbd "W") 'magit-toggle-whitespace)
 (setq magit-highlight-whitespace nil)
+
+(provide 'alexb-magit)

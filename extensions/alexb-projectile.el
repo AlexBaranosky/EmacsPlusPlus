@@ -19,3 +19,5 @@
 
 (global-set-key (kbd "C-c N") 'projectile-cleanup-project-buffers)
 (global-set-key (kbd "C-x M-f") 'projectile-find-file)
+
+(provide 'alexb-projectile)

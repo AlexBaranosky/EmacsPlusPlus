@@ -49,3 +49,5 @@
 (define-key cider-mode-map (kbd "C-c C-q") 'cider-p-eval-last-sexp)
 (define-key cider-mode-map (kbd "C-c C-a") 'alembic-distill)
 (define-key cider-mode-map (kbd "C-c C-f") 'refresh-nrepl)
+
+(provide 'alexb-cider-mode)
