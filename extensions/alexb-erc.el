@@ -106,8 +106,7 @@ that can occur between two notifications.  The default is
 (defun start-erc ()
   (interactive)
   ;; ;; TODO: make alexbaranosky
-  (when (y-or-n-p "Do you want to start ERC? ")
-    (erc :server "irc.freenode.net" :port 6667 :nick "abaranosky")))
+  (erc :server "irc.freenode.net" :port 6667 :nick "abaranosky"))
 
 (defun filter-server-buffers ()
   (delq nil
@@ -115,15 +114,17 @@ that can occur between two notifications.  The default is
          (lambda (x) (and (erc-server-buffer-p x) x))
          (buffer-list))))
 
-(defun stop-irc ()
-  "Disconnects from all irc servers"
+(defun stop-erc ()
   (interactive)
   (dolist (buffer (filter-server-buffers))
     (message "Server buffer: %s" (buffer-name buffer))
     (with-current-buffer buffer
       (erc-quit-server "Asta la vista"))))
 
-(start-erc)
+;;;
+
+(when (y-or-n-p "Do you want to start ERC? ")
+  (start-erc))
 
 (provide 'erc)
 
