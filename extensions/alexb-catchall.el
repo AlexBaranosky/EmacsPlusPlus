@@ -20,6 +20,7 @@
 (key-chord-define-global "kl" 'iy-go-to-char-backward)
 (key-chord-define-global "jk" 'iy-go-to-char)
 (key-chord-define-global "gm" 'guru-mode)
+(key-chord-define-global "qq" 'rotate-windows)
 
 (setq jabber-nickname "Alex Baranosky")
 (setq jabber-account-list

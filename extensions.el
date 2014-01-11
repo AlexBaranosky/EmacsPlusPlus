@@ -8,4 +8,5 @@
 (require 'alexb-magit)
 (require 'alexb-paredit)
 (require 'alexb-projectile)
+(require 'alexb-ruby)
 

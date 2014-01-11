@@ -12,7 +12,8 @@
 
 ;;;;;
 
-(defvar packages '(ac-nrepl
+(defvar packages '(ac-inf-ruby
+                   ac-nrepl
                    ace-jump-mode
                    auto-complete
                    cc-mode
@@ -25,13 +26,16 @@
                    compile
                    crosshairs
                    dash
+                   derived
                    etags-select
                    etags-table
                    expand-region
                    fill-column-indicator
+                   flycheck-hdevtools
                    fuzzy
                    fuzzy-match
                    ghc
+                   ghci-completion
                    gist
                    go-mode
                    guru-mode
@@ -43,14 +47,20 @@
                    idle-highlight
                    ido-hacks
                    idomenu
+                   inf-ruby
                    jabber
                    key-chord
                    markdown-mode
                    mic-paren
+                   ;;; mmm-mode
                    multiple-cursors
                    nav
                    projectile
                    protobuf-mode
+                   robe
+                   ruby-compilation
+                   ruby-mode
+                   ruby-hash-syntax
                    s
                    saveplace
                    scala-mode
@@ -61,8 +71,11 @@
                    starter-kit-eshell
                    starter-kit-lisp
                    subword
+                   tagedit
                    undo-tree
                    winner
+                   yaml-mode
+                   ;; yari
                    yasnippet
 
                    ;; color-theme-sanityinc-solarized

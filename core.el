@@ -12,6 +12,17 @@
         (package-install package-name)
         (require package-name nil t))))
 
+(defmacro after-load (feature &rest body)
+  "After FEATURE is loaded, evaluate BODY."
+  (declare (indent defun))
+  `(eval-after-load ,feature
+     '(progn ,@body)))
+
+(defun add-auto-mode (mode &rest patterns)
+  "Add entries to `auto-mode-alist' to use `MODE' for all given file `PATTERNS'."
+  (dolist (pattern patterns)
+    (add-to-list 'auto-mode-alist (cons pattern mode))))
+
 (defmacro rename-modeline (package-name mode new-name)
   `(eval-after-load ,package-name
      '(defadvice ,mode (after rename-modeline activate)
@@ -175,7 +186,8 @@ Including indent-buffer, which should not be called automatically on save."
   (setq mac-command-modifier 'meta)
   (set-default-font "-apple-inconsolata-medium-r-normal--14-180-72-72-m-180-iso8859-1"))
 
-(setq ring-bell-function (lambda () (message "*bell*")))
+(setq ring-bell-function (lambda () (message "*beep*")))
+(setq custom-file "~/.emacs.d/custom.el")
 
 (custom-set-variables
  ;; custom-set-variables was added by Custom.
