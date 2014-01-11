@@ -17,8 +17,8 @@
 (key-chord-define-global "ii" 'cursor-jump-up)
 (key-chord-define-global "kk" 'cursor-jump-down)
 (key-chord-define-global ",." 'er/expand-region)
-(key-chord-define-global "kl" 'iy-go-to-char-backward)
-(key-chord-define-global "jk" 'iy-go-to-char)
+(key-chord-define-global "jk" 'iy-go-to-char-backward)
+(key-chord-define-global "kl" 'iy-go-to-char)
 (key-chord-define-global "gm" 'guru-mode)
 (key-chord-define-global "qq" 'rotate-windows)
 
