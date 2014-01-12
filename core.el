@@ -140,6 +140,19 @@ buffer is not visiting a file."
   (interactive)
   (switch-to-buffer (other-buffer (current-buffer) 1)))
 
+(defun save-macro (name)
+  "save a macro. Take a name as argument
+   and save the last defined macro under
+   this name at the end of your .emacs"
+  (interactive "SName of the macro: ")
+  (kmacro-name-last-macro name)
+  (find-file "~/.emacs.d/core.el") ;; user-init-file
+  (goto-char (point-max))
+  (newline)
+  (insert-kbd-macro name)
+  (newline)
+  (switch-to-buffer nil))
+
 ;; Turn off mouse interface early in startup to avoid momentary display
 (if (fboundp 'menu-bar-mode) (menu-bar-mode -1))
 (if (fboundp 'tool-bar-mode) (tool-bar-mode -1))
@@ -179,6 +192,48 @@ buffer is not visiting a file."
                      "http://symbolhound.com/?q=clojure+"
                      ""]))))
 
+;; Use human readable Size column instead of original one
+(define-ibuffer-column size-h
+  (:name "Size" :inline t)
+  (cond
+   ((> (buffer-size) 1000000) (format "%7.3fM" (/ (buffer-size) 1000000.0)))
+   ((> (buffer-size) 1000) (format "%7.3fk" (/ (buffer-size) 1000.0)))
+   (t (format "%8d" (buffer-size)))))
+
+;; Modify the default ibuffer-formats
+(setq ibuffer-formats
+      '((mark modified read-only " "
+              (name 18 18 :left :elide)
+              " "
+              (size-h 9 -1 :right)
+              " "
+              (mode 16 16 :left :elide)
+              " "
+              filename-and-process)))
+
+(defadvice ibuffer-update-title-and-summary (after remove-column-titles)
+   (save-excursion
+      (set-buffer "*Ibuffer*")
+      (toggle-read-only 0)
+      (goto-char 1)
+      (search-forward "-\n" nil t)
+      (delete-region 1 (point))
+      (let ((window-min-height 1)) 
+        ;; save a little screen estate
+        (shrink-window-if-larger-than-buffer))
+      (toggle-read-only)))
+  
+(ad-activate 'ibuffer-update-title-and-summary)
+
+;; Switching to ibuffer puts the cursor on the most recent buffer
+(defadvice ibuffer (around ibuffer-point-to-most-recent) ()
+  "Open ibuffer with cursor pointed to most recent buffer name"
+  (let ((recent-buffer-name (buffer-name)))
+    ad-do-it
+    (ibuffer-jump-to-buffer recent-buffer-name)))
+
+(ad-activate 'ibuffer)
+
 (put 'upcase-region 'disabled nil)
 
 (when (file-exists-p "~/.zshrc")
@@ -202,22 +257,11 @@ buffer is not visiting a file."
 (setq ring-bell-function (lambda () (message "*beep*")))
 (setq custom-file "~/.emacs.d/custom.el")
 
-(custom-set-variables
- ;; custom-set-variables was added by Custom.
- ;; If you edit it by hand, you could mess it up, so be careful.
- ;; Your init file should contain only one such instance.
- ;; If there is more than one, they won't work right.
- '(ansi-color-faces-vector
-   [default bold shadow italic underline bold bold-italic bold])
- '(ansi-color-names-vector
-   ["black" "#d55e00" "#009e73" "#f8ec59" "#0072b2" "#cc79a7" "#56b4e9" "white"])
- '(custom-safe-themes
-   (quote
-    ("246a51f19b632c27d7071877ea99805d4f8131b0ff7acb8a607d4fd1c101e163" "1e7e097ec8cb1f8c3a912d7e1e0331caeed49fef6cff220be63bd2a6ba4cc365" "4cf3221feff536e2b3385209e9b9dc4c2e0818a69a1cdb4b522756bcdf4e00a4" "4aee8551b53a43a883cb0b7f3255d6859d766b6c5e14bcb01bed572fcbef4328" "72cc9ae08503b8e977801c6d6ec17043b55313cda34bcf0e6921f2f04cf2da56" "71b172ea4aad108801421cc5251edb6c792f3adbaecfa1c52e94e3d99634dee7" "d2622a2a2966905a5237b54f35996ca6fda2f79a9253d44793cfe31079e3c92b" "501caa208affa1145ccbb4b74b6cd66c3091e41c5bb66c677feda9def5eab19c" default)))
- '(fci-rule-color "#383838"))
-(custom-set-faces
- ;; custom-set-faces was added by Custom.
- ;; If you edit it by hand, you could mess it up, so be careful.
- ;; Your init file should contain only one such instance.
- ;; If there is more than one, they won't work right.
- )
+
+;;; Auto-created fns from keyboard macros
+
+(fset 'upcase-when
+      (lambda (&optional arg)
+        "Find next 'when' (case insensitive) and upcase it"
+        (interactive "p")
+        (kmacro-exec-ring-item (quote ([19 119 104 101 110 13 left left left left 134217845] 0 "%d")) arg)))
