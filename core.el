@@ -177,6 +177,11 @@ buffer is not visiting a file."
 (global-set-key (kbd "C-x g") 'webjump)
 (global-set-key (kbd "C-x f") 'sudo-find-file)
 
+;; (global-set-key (kbd "C-?") 'help-command)
+;; (global-set-key (kbd "M-?") 'mark-paragraph)
+;; (global-set-key (kbd "C-h") 'delete-backward-char)
+;; (global-set-key (kbd "M-h") 'backward-kill-word)
+
 (eval-after-load "webjump"
   '(progn
      (add-to-list 'webjump-sites
@@ -192,24 +197,24 @@ buffer is not visiting a file."
                      "http://symbolhound.com/?q=clojure+"
                      ""]))))
 
-;; Use human readable Size column instead of original one
-(define-ibuffer-column size-h
-  (:name "Size" :inline t)
-  (cond
-   ((> (buffer-size) 1000000) (format "%7.3fM" (/ (buffer-size) 1000000.0)))
-   ((> (buffer-size) 1000) (format "%7.3fk" (/ (buffer-size) 1000.0)))
-   (t (format "%8d" (buffer-size)))))
+;; ;; Use human readable Size column instead of original one
+;; (define-ibuffer-column size-h
+;;   (:name "Size" :inline t)
+;;   (cond
+;;    ((> (buffer-size) 1000000) (format "%7.3fM" (/ (buffer-size) 1000000.0)))
+;;    ((> (buffer-size) 1000) (format "%7.3fk" (/ (buffer-size) 1000.0)))
+;;    (t (format "%8d" (buffer-size)))))
 
-;; Modify the default ibuffer-formats
-(setq ibuffer-formats
-      '((mark modified read-only " "
-              (name 18 18 :left :elide)
-              " "
-              (size-h 9 -1 :right)
-              " "
-              (mode 16 16 :left :elide)
-              " "
-              filename-and-process)))
+;; ;; Modify the default ibuffer-formats
+;; (setq ibuffer-formats
+;;       '((mark modified read-only " "
+;;               (name 18 18 :left :elide)
+;;               " "
+;;               (size-h 9 -1 :right)
+;;               " "
+;;               (mode 16 16 :left :elide)
+;;               " "
+;;               filename-and-process)))
 
 (defadvice ibuffer-update-title-and-summary (after remove-column-titles)
    (save-excursion
