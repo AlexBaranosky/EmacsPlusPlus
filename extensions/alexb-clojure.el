@@ -17,6 +17,24 @@
       (delete-region begin (point))
       result)))
 
+(defun toggle-clj-keyword-string ()
+  "convert the string or keyword at (point) from string->keyword or keyword->string."
+  (interactive)
+  (let* ((original-point (point)))
+    (while (and
+            (> (point) 1)
+            (not (equal "\"" (buffer-substring-no-properties (point) (+ 1 (point)))))
+            (not (equal ":" (buffer-substring-no-properties (point) (+ 1 (point))))))
+      (backward-char))
+    (cond
+     ((equal 1 (point))
+      (message "beginning of file reached, this was probably a mistake."))
+     ((equal "\"" (buffer-substring-no-properties (point) (+ 1 (point))))
+      (insert ":" (substring (live-delete-and-extract-sexp) 1 -1)))
+     ((equal ":" (buffer-substring-no-properties (point) (+ 1 (point))))
+      (insert "\"" (substring (live-delete-and-extract-sexp) 1) "\"")))
+    (goto-char original-point)))
+
 (defun cycle-clj-coll ()
   "convert the coll at (point) from (x) -> {x} -> [x] -> -> #{x} -> (x) recur"
   (interactive)
@@ -53,7 +71,8 @@
       (message "beginning of file reached, this was probably a mistake.")))
     (goto-char original-point)))
 
-(define-key clojure-mode-map (kbd "C-*") 'cycle-clj-coll)
+(define-key clojure-mode-map (kbd "C-:") 'toggle-clj-keyword-string)
+(define-key clojure-mode-map (kbd "C-;") 'cycle-clj-coll)
 
 ;; Warn about missing nREPL instead of doing stupid things
 
