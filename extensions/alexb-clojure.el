@@ -21,11 +21,22 @@
   "convert the coll at (point) from (x) -> {x} -> [x] -> -> #{x} -> (x) recur"
   (interactive)
   (let* ((original-point (point)))
-    (search-backward-regexp "(\\|{\\|\\[")
+    (while (and
+            (> (point) 1)
+            (not (equal "(" (buffer-substring-no-properties (point) (+ 1 (point)))))
+            (not (equal "#{" (buffer-substring-no-properties (point) (+ 2 (point)))))
+            (not (equal "{" (buffer-substring-no-properties (point) (+ 1 (point)))))
+            (not (equal "[" (buffer-substring-no-properties (point) (+ 1 (point))))))
+      (backward-char))
 
     (cond
      ((equal "(" (buffer-substring-no-properties (point) (+ 1 (point))))
       (insert "{" (substring (live-delete-and-extract-sexp) 1 -1) "}"))
+
+     ((equal "#" (buffer-substring-no-properties (point) (+ 1 (point))))
+      (progn
+        (delete-char 1)
+        (insert "(" (substring (live-delete-and-extract-sexp) 1 -1) ")")))
      
      ((equal "{" (buffer-substring-no-properties (point) (+ 1 (point))))
       (if (equal ?# (char-before))
@@ -33,7 +44,7 @@
             (backward-char)
             (delete-char 1)
             (insert "(" (substring (live-delete-and-extract-sexp) 1 -1) ")"))
-          (insert "[" (substring (live-delete-and-extract-sexp) 1 -1) "]")))
+        (insert "[" (substring (live-delete-and-extract-sexp) 1 -1) "]")))
      
      ((equal "[" (buffer-substring-no-properties (point) (+ 1 (point))))
       (insert "#{" (substring (live-delete-and-extract-sexp) 1 -1) "}"))
