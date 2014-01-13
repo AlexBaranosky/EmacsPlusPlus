@@ -31,27 +31,25 @@
 (defun rotate-windows ()
   "Rotate your windows"
   (interactive)
-  (cond ((not (> (count-windows)1))
-         (message "You can't rotate a single window!"))
-        (t
-         (setq i 1)
-         (setq numWindows (count-windows))
-         (while  (< i numWindows)
-           (let* (
-                  (w1 (elt (window-list) i))
-                  (w2 (elt (window-list) (+ (% i numWindows) 1)))
+  (if (not (> (count-windows)1))
+      (message "You can't rotate a single window!")
+    (progn
+      (setq i 1)
+      (setq numWindows (count-windows))
+      (while (< i numWindows)
+        (let* ((w1 (elt (window-list) i))
+               (w2 (elt (window-list) (+ (% i numWindows) 1)))
 
-                  (b1 (window-buffer w1))
-                  (b2 (window-buffer w2))
+               (b1 (window-buffer w1))
+               (b2 (window-buffer w2))
 
-                  (s1 (window-start w1))
-                  (s2 (window-start w2))
-                  )
-             (set-window-buffer w1  b2)
-             (set-window-buffer w2 b1)
-             (set-window-start w1 s2)
-             (set-window-start w2 s1)
-             (setq i (1+ i)))))))
+               (s1 (window-start w1))
+               (s2 (window-start w2)))
+          (set-window-buffer w1  b2)
+          (set-window-buffer w2 b1)
+          (set-window-start w1 s2)
+          (set-window-start w2 s1)
+          (setq i (1+ i)))))))
 
 (defun cleanup-buffer-safe ()
   "Perform a bunch of safe operations on the whitespace content of a buffer.
@@ -217,17 +215,17 @@ buffer is not visiting a file."
               filename-and-process)))
 
 (defadvice ibuffer-update-title-and-summary (after remove-column-titles)
-   (save-excursion
-      (set-buffer "*Ibuffer*")
-      (toggle-read-only 0)
-      (goto-char 1)
-      (search-forward "-\n" nil t)
-      (delete-region 1 (point))
-      (let ((window-min-height 1)) 
-        ;; save a little screen estate
-        (shrink-window-if-larger-than-buffer))
-      (toggle-read-only)))
-  
+  (save-excursion
+    (set-buffer "*Ibuffer*")
+    (toggle-read-only 0)
+    (goto-char 1)
+    (search-forward "-\n" nil t)
+    (delete-region 1 (point))
+    (let ((window-min-height 1))
+      ;; save a little screen estate
+      (shrink-window-if-larger-than-buffer))
+    (toggle-read-only)))
+
 (ad-activate 'ibuffer-update-title-and-summary)
 
 ;; Switching to ibuffer puts the cursor on the most recent buffer
