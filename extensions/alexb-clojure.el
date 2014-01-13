@@ -53,7 +53,7 @@
       (message "beginning of file reached, this was probably a mistake.")))
     (goto-char original-point)))
 
-(define-key clojure-mode-map (kbd "C-`") 'cycle-clj-coll)
+(define-key clojure-mode-map (kbd "C-*") 'cycle-clj-coll)
 
 ;; Warn about missing nREPL instead of doing stupid things
 
