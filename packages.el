@@ -67,7 +67,6 @@
                    saveplace
                    scala-mode
                    ;; scion-mode ;; TODO...
-                   slamhound
                    starter-kit
                    starter-kit-bindings
                    starter-kit-eshell
