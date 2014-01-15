@@ -12,7 +12,8 @@
 
 ;;;;;
 
-(defvar packages '(ac-inf-ruby
+(defvar packages '(hl-line+ ;; comes first, others depend on it
+		   ac-inf-ruby
                    ac-nrepl
                    ace-jump-mode
                    auto-complete
@@ -43,9 +44,10 @@
                    highlight-parentheses
                    highlight-symbol
                    highline
+		   
                    hl-sexp
                    idle-highlight
-                   ido-hacks
+                   ;; ido-hacks
                    idomenu
                    inf-ruby
                    jabber
@@ -54,7 +56,7 @@
                    mic-paren
                    ;;; mmm-mode
                    multiple-cursors
-                   nav
+                   ;; nav
                    projectile
                    protobuf-mode
                    robe
@@ -78,7 +80,7 @@
                    ;; yari
                    yasnippet
 
-                   ;; color-theme-sanityinc-solarized
+                   color-theme-sanityinc-solarized
                    ;; js2-mode
                    ;; js2-refactor
                    ;; clues-theme
