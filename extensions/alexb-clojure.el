@@ -4,31 +4,26 @@
                                (clj-refactor-mode 1)
                                (cljr-add-keybindings-with-prefix "C-c C-t")))
 
-(defun cljr-cycle-defn-privacy ()
+(defun cljr-cycle-privacy ()
   (interactive)
   (save-excursion
-    (search-backward-regexp "(defn-? ")
+    (search-backward-regexp "\\((defn-? \\)\\|\\((def \\)")
     (cond
      ((looking-at "(defn-")
       (forward-char 5)
       (delete-char 1))
-     (t
+     ((looking-at "(defn")
       (forward-char 5)
-      (insert "-")))))
-
-(defun cljr-cycle-def-privacy ()
-  (interactive)
-  (save-excursion
-    (search-backward-regexp "(def ")
-    (cond
+      (insert "-"))
      ((looking-at "(def ^:private")
       (forward-char 5)
       (delete-char 10))
-     (t
+     ((looking-at "(def ")
       (forward-char 5)
       (insert "^:private ")))))
 
 (define-key clojure-mode-map (kbd "C-x C-r") 'cljr-rename-file)
+(define-key clojure-mode-map (kbd "C-P") 'cljr-cycle-privacy)
 (define-key clojure-mode-map (kbd "C->") 'cljr-thread)
 (define-key clojure-mode-map (kbd "C-<") 'cljr-unwind)
 
