@@ -4,12 +4,29 @@
                                (clj-refactor-mode 1)
                                (cljr-add-keybindings-with-prefix "C-c C-t")))
 
-(fset 'cljr-thread-first-all
-   (lambda (&optional arg) "Keyboard macro." (interactive "p") (kmacro-exec-ring-item (quote ([40 45 62 67108905 67108926 67108926 67108926 67108926 67108926 67108926 67108926 67108926] 0 "%d")) arg)))
+(defun cljr-cycle-defn-privacy ()
+  (interactive)
+  (save-excursion
+    (search-backward-regexp "(defn-? ")
+    (cond
+     ((looking-at "(defn-")
+      (forward-char 5)
+      (delete-char 1))
+     (t
+      (forward-char 5)
+      (insert "-")))))
 
-
-(fset 'cljr-thread-last-all
-   (lambda (&optional arg) "Keyboard macro." (interactive "p") (kmacro-exec-ring-item (quote ([40 67108905 45 62 62 32 67108926 67108926 67108926 67108926 67108926 67108926 67108926 67108926 67108926 67108926 67108926 67108926] 0 "%d")) arg)))
+(defun cljr-cycle-def-privacy ()
+  (interactive)
+  (save-excursion
+    (search-backward-regexp "(def ")
+    (cond
+     ((looking-at "(def ^:private")
+      (forward-char 5)
+      (delete-char 10))
+     (t
+      (forward-char 5)
+      (insert "^:private ")))))
 
 (define-key clojure-mode-map (kbd "C-x C-r") 'cljr-rename-file)
 (define-key clojure-mode-map (kbd "C->") 'cljr-thread)
@@ -17,7 +34,6 @@
 
 (define-key clojure-mode-map (kbd "M-C->") 'cljr-thread-first-all)
 (define-key clojure-mode-map (kbd "M-C-?") 'cljr-thread-last-all)
-
 
 (defun live-delete-and-extract-sexp ()
   "Delete the sexp and return it."
