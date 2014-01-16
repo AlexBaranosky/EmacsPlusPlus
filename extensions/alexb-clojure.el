@@ -23,7 +23,7 @@
       (insert "^:private ")))))
 
 (define-key clojure-mode-map (kbd "C-x C-r") 'cljr-rename-file)
-(define-key clojure-mode-map (kbd "C-P") 'cljr-cycle-privacy)
+(define-key clojure-mode-map (kbd "C-S p") 'cljr-cycle-privacy)
 (define-key clojure-mode-map (kbd "C->") 'cljr-thread)
 (define-key clojure-mode-map (kbd "C-<") 'cljr-unwind)
 
