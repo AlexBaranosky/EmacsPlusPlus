@@ -47,6 +47,7 @@
 		   
                    hl-sexp
                    idle-highlight
+                   iy-go-to-char
                    ;; ido-hacks
                    idomenu
                    inf-ruby
