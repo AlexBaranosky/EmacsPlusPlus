@@ -4,7 +4,13 @@
                '("marmalade" . "http://marmalade-repo.org/packages/") t))
 
 (add-to-list 'load-path "~/.emacs.d")
+
 (add-to-list 'load-path "~/.emacs.d/extensions")
+
+(dolist (project (directory-files "~/.emacs.d/site-lisp" t "\\w+"))
+  (when (file-directory-p project)
+    (add-to-list 'load-path project)))
+
 (package-initialize)
 
 (when (not package-archive-contents)
@@ -13,7 +19,7 @@
 ;;;;;
 
 (defvar packages '(hl-line+ ;; comes first, others depend on it
-		   ac-inf-ruby
+                   ac-inf-ruby
                    ac-nrepl
                    ace-jump-mode
                    auto-complete
@@ -44,7 +50,7 @@
                    highlight-parentheses
                    highlight-symbol
                    highline
-		   
+
                    hl-sexp
                    idle-highlight
                    iy-go-to-char

@@ -1,0 +1,3 @@
+[submodule "site-lisp/wgrep"]
+	path = site-lisp/wgrep
+	url = https://github.com/mhayashi1120/Emacs-wgrep.git
