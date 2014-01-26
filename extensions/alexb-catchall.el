@@ -64,6 +64,7 @@
  'auto-mode-alist
  '("\\(Capfile\\|Gemfile\\(?:\\.[a-zA-Z0-9._-]+\\)?\\|[rR]akefile\\)\\'" . ruby-mode))
 
+(setq twittering-use-master-password t)
 
 ;; (load-theme 'zenburn)
 (load-theme 'sanityinc-solarized-dark)

@@ -1,3 +1,6 @@
 [submodule "site-lisp/wgrep"]
 	path = site-lisp/wgrep
 	url = https://github.com/mhayashi1120/Emacs-wgrep.git
+[submodule "site-lisp/twittering-mode"]
+	path = site-lisp/twittering-mode
+	url = git://github.com/hayamiz/twittering-mode.git
