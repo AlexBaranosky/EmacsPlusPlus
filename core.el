@@ -151,6 +151,27 @@ buffer is not visiting a file."
   (newline)
   (switch-to-buffer nil))
 
+(defun dired-back-to-top ()
+  (interactive)
+  (beginning-of-buffer)
+  (dired-next-line 4))
+
+(defun dired-jump-to-bottom ()
+  (interactive)
+  (end-of-buffer)
+  (dired-next-line -1))
+
+(define-key dired-mode-map (vector 'remap 'beginning-of-buffer) 'dired-back-to-top)
+(define-key dired-mode-map (vector 'remap 'end-of-buffer) 'dired-jump-to-bottom)
+
+(setq global-auto-revert-non-file-buffers t)
+(setq auto-revert-verbose nil)
+
+;; Elisp go-to-definition with M-. and back again with M-,
+(autoload 'elisp-slime-nav-mode "elisp-slime-nav")
+(add-hook 'emacs-lisp-mode-hook (lambda () (elisp-slime-nav-mode t)))
+;; (eval-after-load 'elisp-slime-nav '(diminish 'elisp-slime-nav-mode))
+
 ;; Turn off mouse interface early in startup to avoid momentary display
 (if (fboundp 'menu-bar-mode) (menu-bar-mode -1))
 (if (fboundp 'tool-bar-mode) (tool-bar-mode -1))
