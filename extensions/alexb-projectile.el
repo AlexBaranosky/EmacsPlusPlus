@@ -17,6 +17,15 @@
   (dolist (filename (projectile-current-project-file-full-paths))
     (cleanup-file filename)))
 
+(defun projectile-cleanup-project-clj-files ()
+  (interactive)
+  (dolist (filename (projectile-current-project-file-full-paths))
+    (when (and (s-ends-with? "clj" filename)
+               (not (s-ends-with? "project.clj" filename)))
+      (find-file filename)
+      (cljr-sort-ns)
+      (cleanup-file filename))))
+
 (global-set-key (kbd "C-c N") 'projectile-cleanup-project-buffers)
 (global-set-key (kbd "C-x M-f") 'projectile-find-file)
 
