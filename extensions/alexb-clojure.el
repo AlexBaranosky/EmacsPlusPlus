@@ -7,12 +7,12 @@
 (defun cljr-cycle-arrows ()
   (interactive)
   (save-excursion
-    (search-backward-regexp "\\((-> \\)\\|\\((->> \\)")
+    (search-backward-regexp "\\(([^-]*-> \\)\\|\\(([^-]*->> \\)")
     (cond
-     ((looking-at "(->>")
+     ((looking-at "([^-]*->>")
       (forward-char 2)
       (delete-char 1))
-     ((looking-at "(->")
+     ((looking-at "([^-]*->")
       (forward-char 2)
       (insert ">")))))
 
