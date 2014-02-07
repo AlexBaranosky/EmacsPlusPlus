@@ -21,6 +21,7 @@
 (key-chord-define-global "kl" 'iy-go-to-char)
 (key-chord-define-global "gm" 'guru-mode)
 (key-chord-define-global "qq" 'rotate-windows)
+(key-chord-define-global "ww" 'wgrep-change-to-wgrep-mode)
 
 (setq jabber-nickname "Alex Baranosky")
 (setq jabber-account-list
