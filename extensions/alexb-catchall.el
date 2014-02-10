@@ -7,7 +7,28 @@
 ;; (add-hook 'prog-mode-hook (lambda ()
 ;;                             (guru-mode +1)))
 
+(defun g-blame ()
+  (interactive)
+  (shell-command
+   (format "git show $(git blame '%s' -L %s,%s | awk '{print $1}')"
+           (buffer-file-name)
+           (line-number-at-pos)
+           (line-number-at-pos))))
+
+(defun g-churn ()
+  (interactive)
+  (shell-command
+   "set -e; git log --all -M -C --name-only --format='format:' \"--since='6 months ago'\" | sort | grep -v '^$' | uniq -c | sort | awk 'BEGIN {print \"count\tfile\"} {print $1 \"\t\" $2}' | sort -g | tail -50"))
+
+(defun g-who ()
+  (interactive)
+  (shell-command
+   (concat "git log --format='%an' --since='6 months ago' "
+           (buffer-file-name)
+           " | sort | uniq -c | sort -rn")))
+
 (key-chord-mode 1)
+(key-chord-define-global "zz" 'g-blame)
 (key-chord-define-global "jj" 'ace-jump-word-mode)
 (key-chord-define-global "jl" 'ace-jump-line-mode)
 (key-chord-define-global "jc" 'ace-jump-char-mode)
