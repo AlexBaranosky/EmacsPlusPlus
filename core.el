@@ -291,3 +291,6 @@ buffer is not visiting a file."
         "Find next 'when' (case insensitive) and upcase it"
         (interactive "p")
         (kmacro-exec-ring-item (quote ([19 119 104 101 110 13 left left left left 134217845] 0 "%d")) arg)))
+
+(fset 'gui-diff-last-failure
+      (lambda (&optional arg) "Keyboard macro." (interactive "p") (kmacro-exec-ring-item (quote ([18 97 99 116 117 97 108 58 13 134217734 19 40 61 13 right 201326624 201326624 134217847 134217790 40 103 117 105 45 100 105 102 102 32 25 41] 0 "%d")) arg)))
