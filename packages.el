@@ -87,6 +87,7 @@
                    yasnippet
 
                    color-theme-sanityinc-solarized
+                   color-theme-sanityinc-tomorrow
                    ;; js2-mode
                    ;; js2-refactor
                    ;; clues-theme

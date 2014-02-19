@@ -90,7 +90,8 @@
 (setq twittering-use-master-password t)
 
 ;; (load-theme 'zenburn)
-(load-theme 'sanityinc-solarized-dark)
+;;(load-theme 'sanityinc-solarized-dark)
+(color-theme-sanityinc-tomorrow-eighties)
 ;; (load-theme 'twilight-theme)
 ;; (load-theme 'clues)
 ;;(load-theme 'cyberpunk)

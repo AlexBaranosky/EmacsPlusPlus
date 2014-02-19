@@ -151,6 +151,10 @@ buffer is not visiting a file."
   (newline)
   (switch-to-buffer nil))
 
+(defun anb-insert-date ()
+  (interactive)
+  (insert (format-time-string "%a, %b %e, %Y")))
+
 (setq global-auto-revert-non-file-buffers t)
 (setq auto-revert-verbose nil)
 
@@ -286,11 +290,9 @@ buffer is not visiting a file."
 
 ;;; Auto-created fns from keyboard macros
 
-(fset 'upcase-when
-      (lambda (&optional arg)
-        "Find next 'when' (case insensitive) and upcase it"
-        (interactive "p")
-        (kmacro-exec-ring-item (quote ([19 119 104 101 110 13 left left left left 134217845] 0 "%d")) arg)))
-
 (fset 'gui-diff-last-failure
       (lambda (&optional arg) "Keyboard macro." (interactive "p") (kmacro-exec-ring-item (quote ([18 97 99 116 117 97 108 58 13 134217734 19 40 61 13 right 201326624 201326624 134217847 134217790 40 103 117 105 45 100 105 102 102 32 25 41] 0 "%d")) arg)))
+
+(fset 'split-let
+   (lambda (&optional arg) "Keyboard macro." (interactive "p") (kmacro-exec-ring-item (quote ([134217848 112 97 return 93 91 backspace 91 left 32 40 108 101 116 backspace backspace backspace backspace 134217848 112 return 40 108 101 116 67108905 M-left left return 3 110] 0 "%d")) arg)))
+
