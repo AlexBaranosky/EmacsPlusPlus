@@ -28,19 +28,14 @@
            " | sort | uniq -c | sort -rn")))
 
 (key-chord-mode 1)
-(key-chord-define-global "zz" 'g-blame)
 (key-chord-define-global "jj" 'ace-jump-word-mode)
 (key-chord-define-global "jl" 'ace-jump-line-mode)
 (key-chord-define-global "jc" 'ace-jump-char-mode)
 (key-chord-define-global "gg" 'goto-line)
-(key-chord-define-global "uu" 'switch-to-previous-buffer)
 (key-chord-define-global "gp" 'rgrep)
 (key-chord-define-global "ii" 'cursor-jump-up)
 (key-chord-define-global "kk" 'cursor-jump-down)
 (key-chord-define-global ",." 'er/expand-region)
-(key-chord-define-global "jk" 'iy-go-to-char-backward)
-(key-chord-define-global "kl" 'iy-go-to-char)
-(key-chord-define-global "gm" 'guru-mode)
 (key-chord-define-global "qq" 'rotate-windows)
 (key-chord-define-global "ww" 'wgrep-change-to-wgrep-mode)
 (key-chord-define-global "xx" 'gui-diff-last-failure)
@@ -96,5 +91,14 @@
 ;; (load-theme 'clues)
 ;;(load-theme 'cyberpunk)
 ;; (load-theme 'deep-thought)
+
+
+
+(add-hook 'sgml-mode-hook 'emmet-mode) ;; Auto-start on any markup modes
+(add-hook 'css-mode-hook  'emmet-mode) ;; enable Emmet's css abbreviation.
+
+(add-hook 'emmet-mode-hook (lambda () (setq emmet-indentation 2)))
+(setq emmet-move-cursor-between-quotes t)
+(setq emmet-move-cursor-after-expanding nil) 
 
 (provide 'alexb-catchall)
