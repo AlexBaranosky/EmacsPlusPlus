@@ -196,7 +196,8 @@ buffer is not visiting a file."
 (global-set-key (kbd "S-C-<up>")    'enlarge-window)
 (global-set-key (kbd "C-c C-r") 'rename-sgml-tag)
 
-(global-set-key [remap goto-line] 'goto-line-with-feedback)
+(global-set-key [remap goto-line] 'goto-line)
+;; (global-set-key [remap goto-line] 'goto-line-with-feedback)
 (global-set-key (kbd "C-x C-r") 'rename-current-buffer-file)
 (global-set-key (kbd "C-c n") 'cleanup-buffer)
 (global-set-key (kbd "C-x g") 'webjump)
@@ -276,7 +277,7 @@ buffer is not visiting a file."
            exec-path))))
 
 (global-auto-revert-mode t)
-;; (global-linum-mode)
+(global-linum-mode)
 
 (setq-default fill-column 80)
 (when (string-equal system-type "darwin")

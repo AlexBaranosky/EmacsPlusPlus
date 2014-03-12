@@ -34,6 +34,7 @@
                    crosshairs
                    dash
                    derived
+                   emmet-mode
                    etags-select
                    etags-table
                    expand-region
