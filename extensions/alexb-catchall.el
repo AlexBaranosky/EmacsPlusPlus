@@ -1,6 +1,6 @@
 (global-auto-complete-mode t)
 (show-paren-mode 1)
-(subword-mode)
+(subword-mode 1)
 (winner-mode)
 (global-undo-tree-mode)
 

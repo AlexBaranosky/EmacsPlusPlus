@@ -1,7 +1,10 @@
 (when window-system
   (require 'package)
   (add-to-list 'package-archives
-               '("marmalade" . "http://marmalade-repo.org/packages/") t))
+               '("marmalade" . "http://marmalade-repo.org/packages/") t)
+  ;; (add-to-list 'package-archives
+  ;;              '("melpa" . "http://melpa.milkbox.net/packages/") t)
+  )
 
 (add-to-list 'load-path "~/.emacs.d")
 
@@ -60,6 +63,7 @@
                    inf-ruby
                    jabber
                    key-chord
+                   malabar-mode
                    markdown-mode
                    mic-paren
                    ;;; mmm-mode
