@@ -104,7 +104,7 @@ that can occur between two notifications.  The default is
 (defcustom erc-nick nil
   "Nick to use for ERC"
   :group 'emacs++
-  :type string)
+  :type 'string)
 
 (defun start-erc ()
   (interactive)

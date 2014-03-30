@@ -20,3 +20,4 @@ backups/
 auto-save-list/
 .cask/
 *~
+userspecific.el
