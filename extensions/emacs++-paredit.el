@@ -33,4 +33,4 @@
   'paredit-wrap-round-from-behind)
 ;; (key-chord-define-global "dp" 'paredit-duplicate-closest-sexp)
 
-(provide 'alexb-paredit)
+(provide 'emacs++-paredit)

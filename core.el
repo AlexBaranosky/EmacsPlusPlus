@@ -151,7 +151,7 @@ buffer is not visiting a file."
   (newline)
   (switch-to-buffer nil))
 
-(defun anb-insert-date ()
+(defun emacs++-insert-date ()
   (interactive)
   (insert (format-time-string "%a, %b %e, %Y")))
 

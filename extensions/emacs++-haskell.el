@@ -35,4 +35,4 @@
     (add-to-list
      'compilation-error-regexp-alist alias)))
 
-(provide 'alexb-haskell)
+(provide 'emacs++-haskell)

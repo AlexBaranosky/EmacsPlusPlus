@@ -93,6 +93,7 @@
 
                    color-theme-sanityinc-solarized
                    color-theme-sanityinc-tomorrow
+                   moe-theme
                    ;; js2-mode
                    ;; js2-refactor
                    ;; clues-theme

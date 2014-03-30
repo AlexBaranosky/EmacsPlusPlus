@@ -8,4 +8,4 @@
 (setq ido-everywhere t)
 (ido-mode 1)
 
-(provide 'alexb-ido)
+(provide 'emacs++-ido)

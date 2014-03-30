@@ -96,17 +96,21 @@ that can occur between two notifications.  The default is
 (setq erc-autoaway-use-emacs-idle t)
 
 (setq erc-auto-reconnect t)
-(setq erc-autojoin-channels-alist
-      '(("freenode.net" "#clojure" "#emacs" "#haskell" "#bitcoin")))
 
 
 ;; utf-8 always and forever
 (setq erc-server-coding-system '(utf-8 . utf-8))
 
+(defcustom erc-nick nil
+  "Nick to use for ERC"
+  :group 'emacs++
+  :type string)
+
 (defun start-erc ()
   (interactive)
-  ;; ;; TODO: make alexbaranosky
-  (erc :server "irc.freenode.net" :port 6667 :nick "abaranosky"))
+  (if erc-nick
+      (erc :server "irc.freenode.net" :port 6667 :nick erc-nick)
+    (message "Can't start ERC, no nick set")))
 
 (defun filter-server-buffers ()
   (delq nil
@@ -123,7 +127,4 @@ that can occur between two notifications.  The default is
 
 ;;;
 
-(when (y-or-n-p "Do you want to start ERC? ")
-  (start-erc))
-
-(provide 'alexb-erc)
+(provide 'emacs++-erc)
