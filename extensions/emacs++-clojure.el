@@ -4,7 +4,6 @@
                                (clj-refactor-mode 1)
                                (cljr-add-keybindings-with-prefix "C-c C-x")))
 
-
 (define-key clojure-mode-map (kbd "C-x C-r") 'cljr-rename-file)
 (define-key clojure-mode-map (kbd "C->") 'cljr-thread)
 (define-key clojure-mode-map (kbd "C-<") 'cljr-unwind)
@@ -12,6 +11,7 @@
 (define-key clojure-mode-map (kbd "M-C-?") 'cljr-thread-last-all)
 (define-key clojure-mode-map (kbd "C-:") 'cljr-cycle-stringlike)
 (define-key clojure-mode-map (kbd "C-;") 'cljr-cycle-coll)
+(key-chord-define-global "i[" 'cljr-cycle-if)
 (key-chord-define-global "p[" 'cljr-cycle-privacy)
 
 ;; Warn about missing nREPL instead of doing stupid things
