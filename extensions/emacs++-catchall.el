@@ -40,12 +40,6 @@
 (key-chord-define-global "ww" 'wgrep-change-to-wgrep-mode)
 (key-chord-define-global "xx" 'gui-diff-last-failure)
 
-(setq jabber-nickname "Alex Baranosky")
-(setq jabber-account-list
-      '(("alexander.baranosky@gmail.com"
-         (:network-server . "talk.google.com")
-         (:connection-type . ssl))))          
-
 (defvar push-mark-before-goto-char nil)
 
 (defadvice goto-char (before push-mark-first activate)
