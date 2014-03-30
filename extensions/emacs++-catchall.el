@@ -56,7 +56,6 @@
                              yas/completing-prompt))
 (yas/global-mode 1)
 (yas/load-directory "~/.emacs.d/snippets/clojure-mode")
-(yas/load-directory "~/.emacs.d/snippets/org-mode")
 (key-chord-define-global "yy" 'yas-insert-snippet)
 
 ;; (js2r-add-keybindings-with-prefix "C-c C-t")
