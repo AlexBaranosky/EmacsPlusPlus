@@ -9,10 +9,12 @@
 (define-key clojure-mode-map (kbd "C-<") 'cljr-unwind)
 (define-key clojure-mode-map (kbd "M-C->") 'cljr-thread-first-all)
 (define-key clojure-mode-map (kbd "M-C-?") 'cljr-thread-last-all)
-(define-key clojure-mode-map (kbd "C-:") 'cljr-cycle-stringlike)
-(define-key clojure-mode-map (kbd "C-;") 'cljr-cycle-coll)
+;; (define-key clojure-mode-map (kbd "C-:") 'cljr-cycle-stringlike)
+;; (define-key clojure-mode-map (kbd "C-;") 'cljr-cycle-coll)
+(key-chord-define-global "c[" 'cljr-cycle-coll)
 (key-chord-define-global "i[" 'cljr-cycle-if)
 (key-chord-define-global "p[" 'cljr-cycle-privacy)
+(key-chord-define-global "s[" 'cljr-cycle-stringlike)
 
 ;; Warn about missing nREPL instead of doing stupid things
 
