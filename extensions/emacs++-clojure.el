@@ -4,7 +4,6 @@
                                (clj-refactor-mode 1)
                                (cljr-add-keybindings-with-prefix "C-c C-x")))
 
-(define-key clojure-mode-map (kbd "C-x C-r") 'cljr-rename-file)
 (define-key clojure-mode-map (kbd "C->") 'cljr-thread)
 (define-key clojure-mode-map (kbd "C-<") 'cljr-unwind)
 (define-key clojure-mode-map (kbd "M-C->") 'cljr-thread-first-all)
