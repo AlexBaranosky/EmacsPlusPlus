@@ -31,8 +31,6 @@
 (key-chord-define-global "jj" 'ace-jump-word-mode)
 (key-chord-define-global "jl" 'ace-jump-line-mode)
 (key-chord-define-global "jc" 'ace-jump-char-mode)
-(key-chord-define-global "gg" 'goto-line)
-(key-chord-define-global "gp" 'rgrep)
 (key-chord-define-global "ii" 'cursor-jump-up)
 (key-chord-define-global "kk" 'cursor-jump-down)
 (key-chord-define-global ",." 'er/expand-region)
@@ -56,7 +54,6 @@
                              yas/completing-prompt))
 (yas/global-mode 1)
 (yas/load-directory "~/.emacs.d/snippets/clojure-mode")
-(key-chord-define-global "yy" 'yas-insert-snippet)
 
 ;; (js2r-add-keybindings-with-prefix "C-c C-t")
 
