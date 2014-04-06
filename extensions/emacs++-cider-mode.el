@@ -46,15 +46,8 @@
   (refresh)
   (gui-diff))
 
-(defun clear-repl ()
-  (interactive)
-  (save-excursion
-    (cider-switch-to-relevant-repl-buffer "*cider-repl*")
-    (cider-repl-clear-buffer)))
-
 (define-key cider-mode-map (kbd "C-c C-q") 'cider-p-eval-last-sexp)
 (define-key cider-mode-map (kbd "C-c C-a") 'alembic-distill)
 (define-key cider-mode-map (kbd "C-c C-f") 'refresh-nrepl)
-(key-chord-define-global "xc" 'clear-repl)
 
 (provide 'emacs++-cider-mode)
