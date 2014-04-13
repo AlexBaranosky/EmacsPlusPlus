@@ -1,2 +1,3 @@
-(require 'twittering-mode)
-(require 'wgrep)
+;;; (require 'twittering-mode)
+;;; (require 'wgrep)
+

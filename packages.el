@@ -63,7 +63,7 @@
                    inf-ruby
                    jabber
                    key-chord
-                   malabar-mode
+                   ;; malabar-mode
                    markdown-mode
                    mic-paren
                    ;;; mmm-mode
@@ -93,7 +93,7 @@
 
                    color-theme-sanityinc-solarized
                    color-theme-sanityinc-tomorrow
-                   moe-theme
+                   ;;; moe-theme
                    ;; js2-mode
                    ;; js2-refactor
                    ;; clues-theme
