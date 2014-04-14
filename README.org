@@ -1,4 +1,0 @@
-* Emacs++ is an extensible basic Emacs setup
-
-- Add your user-specific code to ~/.emacs.d/userspecific.el
-
