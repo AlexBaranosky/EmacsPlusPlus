@@ -77,7 +77,7 @@
 ;;(load-theme 'sanityinc-solarized-dark)
 ;;(color-theme-sanityinc-tomorrow-eighties)
 ;;(load-theme 'tsdh-dark)
-(moe-dark)
+;;;;; (moe-dark)
 ;; (load-theme 'twilight-theme)
 ;; (load-theme 'clues)
 ;;(load-theme 'cyberpunk)
