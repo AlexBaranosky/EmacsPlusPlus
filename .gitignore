@@ -21,3 +21,4 @@ auto-save-list/
 .cask/
 *~
 userspecific.el
+custom.el
