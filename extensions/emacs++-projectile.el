@@ -26,33 +26,27 @@
     (cljr-sort-ns))
   (setq cljr-auto-sort-ns t))
 
-(defun cljr-add-furtive-dev ()
-  (interactive)
-  (cljr-add-dev-ns "[furtive.dev :refer :all]"))
-
-(defun cljr-add-slarti-dev ()
-  (interactive)
-  (cljr-add-dev-ns "[slartibartfast.dev :refer :all]"))
-
-(defun projectile-cleanup-project-furtive-files ()
-  (interactive)
+(defun projectile-cleanup-project-x-files
+  (dev-ns-str)
   (dolist (filename (projectile-current-project-file-full-paths))
     (when (s-ends-with? "clj" filename)
       (ignore-errors
         (find-file filename)
-        (cljr-add-furtive-dev)
+        (cljr-add-dev-ns dev-ns-str)
         (cljr-remove-unused-requires)
         (cleanup-file filename)))))
 
+(defun projectile-cleanup-project-furtive-files ()
+  (interactive)
+  (projectile-cleanup-project-x-files "[furtive.dev :refer :all]"))
+
+(defun projectile-cleanup-project-drive-files ()
+  (interactive)
+  (projectile-cleanup-project-x-files "[drive.dev :refer :all]"))
+
 (defun projectile-cleanup-project-slarti-files ()
   (interactive)
-  (dolist (filename (projectile-current-project-file-full-paths))
-    (when (s-ends-with? "clj" filename)
-      (ignore-errors
-        (find-file filename)
-        (cljr-add-slarti-dev)
-        (cljr-sort-ns)
-        (cleanup-file filename)))))
+  (projectile-cleanup-project-x-files "[slartibartfast.dev :refer :all]"))
 
 (defun projectile-cleanup-project-clj-files ()
   (interactive)
