@@ -26,10 +26,10 @@ Keybinding         | Description
 <kbd>C-,</kbd> | 'mc/mark-previous-like-this)
 <kbd>C-!</kbd> | 'mc/mark-all-like-this)
 <kbd>C-S-c C-S-c</kbd> | 'mc/edit-lines)
-<kbd><S-up></kbd>    | 'buf-move-up
-<kbd><S-down></kbd>  | 'buf-move-down
-<kbd><S-left></kbd>  | 'buf-move-left
-<kbd><S-right></kbd> | 'buf-move-right
+<kbd>`<S-up>`</kbd>    | 'buf-move-up
+<kbd>`<S-down>`</kbd>  | 'buf-move-down
+<kbd>`<S-left>`</kbd>  | 'buf-move-left
+<kbd>`<S-right>`</kbd> | 'buf-move-right
 
 Function        | Description
 ----------------|---------------------------------------------------------------
