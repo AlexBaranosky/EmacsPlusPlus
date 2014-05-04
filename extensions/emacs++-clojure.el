@@ -1,3 +1,5 @@
+(require 'clojure-mode)
+
 (add-to-list 'auto-mode-alist '("\\.edn\\'" . clojure-mode))
 (add-hook 'clojure-mode 'paredit-mode)
 (add-hook 'clojure-mode-hook (lambda ()

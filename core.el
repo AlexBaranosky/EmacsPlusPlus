@@ -75,16 +75,16 @@ Including indent-buffer, which should not be called automatically on save."
 ;; (add-hook 'before-save cleanup-buffer-safe)
 
 
-(defun cleanup-file (filename)
-  (interactive "sFile: ")
-  (find-file filename)
-  (let ((name (buffer-name))
-        (filename (buffer-file-name)))
-    (if (not (and filename (file-exists-p filename)))
-        (error "Buffer '%s' is not visiting a file!" name)
-      (progn
-        (esk-cleanup-buffer)
-        (save-buffer)))))
+;; (defun cleanup-file (filename)
+;;   (interactive "sFile: ")
+;;   (find-file filename)
+;;   (let ((name (buffer-name))
+;;         (filename (buffer-file-name)))
+;;     (if (not (and filename (file-exists-p filename)))
+;;         (error "Buffer '%s' is not visiting a file!" name)
+;;       (progn
+;;         (esk-cleanup-buffer)
+;;         (save-buffer)))))
 
 (defun rename-current-buffer-file ()
   "Renames current buffer and file it is visiting."
@@ -276,8 +276,14 @@ buffer is not visiting a file."
            (split-string-and-unquote path ":")
            exec-path))))
 
+(add-to-list 'load-path "~/.emacs.d")
+(add-to-list 'load-path "~/.emacs.d/extensions")
+
+(winner-mode 1)
+(global-hl-line-mode 1)
 (global-auto-revert-mode t)
 (global-linum-mode)
+(subword-mode 1)
 
 (setq-default fill-column 80)
 (when (string-equal system-type "darwin")

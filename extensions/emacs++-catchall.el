@@ -49,10 +49,6 @@
 (global-set-key (kbd "C-S-c C-S-c") 'mc/edit-lines)
 (global-set-key (kbd "C-x C-b") 'ibuffer)
 (autoload 'ibuffer "ibuffer" "List buffers." t)
-(setq yas/prompt-functions '(yas/ido-prompt
-                             yas/completing-prompt))
-(yas/global-mode 1)
-(yas/load-directory "~/.emacs.d/snippets/clojure-mode")
 
 ;; (js2r-add-keybindings-with-prefix "C-c C-t")
 
@@ -73,24 +69,17 @@
 
 (setq twittering-use-master-password t)
 
-;; (load-theme 'zenburn)
-;;(load-theme 'sanityinc-solarized-dark)
-;;(color-theme-sanityinc-tomorrow-eighties)
-;;(load-theme 'tsdh-dark)
-;;;;; (moe-dark)
-;; (load-theme 'twilight-theme)
-;; (load-theme 'clues)
-;;(load-theme 'cyberpunk)
-;; (load-theme 'deep-thought)
-
-
-
 (add-hook 'sgml-mode-hook 'emmet-mode) ;; Auto-start on any markup modes
 (add-hook 'css-mode-hook  'emmet-mode) ;; enable Emmet's css abbreviation.
 
 (add-hook 'emmet-mode-hook (lambda () (setq emmet-indentation 2)))
 (setq emmet-move-cursor-between-quotes t)
 (setq emmet-move-cursor-after-expanding nil) 
+
+(global-set-key (kbd "<S-up>") 'buf-move-up)
+(global-set-key (kbd "<S-down>") 'buf-move-down)
+(global-set-key (kbd "<S-left>") 'buf-move-left)
+(global-set-key (kbd "<S-right>") 'buf-move-right)
 
 (provide 'emacs++-catchall)
 

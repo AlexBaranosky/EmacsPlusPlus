@@ -18,4 +18,6 @@
 ;; (define-key magit-mode-map (kbd "W") 'magit-toggle-whitespace)
 (setq magit-highlight-whitespace nil)
 
+(global-set-key (kbd "C-c g") 'magit-status)
+
 (provide 'emacs++-magit)

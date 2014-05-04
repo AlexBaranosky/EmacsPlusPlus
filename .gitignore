@@ -22,3 +22,5 @@ auto-save-list/
 *~
 userspecific.el
 custom.el
+el-get/
+srecode-map.el

@@ -6,7 +6,6 @@
 (require 'emacs++-haskell)
 (require 'emacs++-ido)
 (require 'emacs++-magit)
-(require 'emacs++-paredit)
 (require 'emacs++-projectile)
 (require 'emacs++-ruby)
 
