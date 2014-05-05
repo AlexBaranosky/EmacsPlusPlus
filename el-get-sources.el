@@ -80,10 +80,6 @@
          iy-go-to-char
          mic-paren
          ruby-hash-syntax
-         ;; starter-kit
-         ;; starter-kit-bindings
-         ;; starter-kit-eshell
-         ;; starter-kit-lisp
          tagedit
          jabber)
        (mapcar 'el-get-source-name el-get-sources)))
