@@ -17,19 +17,19 @@ Keybinding         | Description
 <kbd>"xx"</kbd> | 'gui-diff-last-failure
 <kbd>C-x f</kbd> | Open file in sudo
 <kbd>S-C-\<left\></kbd> | Shrink window left
-<kbd>`S-C-<right>`</kbd> | Shrink window right
-<kbd>`S-C-<up>`</kbd> | Shrink window up
-<kbd>`S-C-<down>`</kbd> | Shrink window down
+<kbd>S-C-\<right\></kbd> | Shrink window right
+<kbd>S-C-\<up\></kbd> | Shrink window up
+<kbd>S-C-\<down\></kbd> | Shrink window down
 <kbd>C-c n</kbd> | Cleanup file
 <kbd>C-x g</kbd> | Search the web
 <kbd>C-.</kbd> | 'mc/mark-next-like-this)
 <kbd>C-,</kbd> | 'mc/mark-previous-like-this)
 <kbd>C-!</kbd> | 'mc/mark-all-like-this)
 <kbd>C-S-c C-S-c</kbd> | 'mc/edit-lines)
-<kbd>`<S-up>`</kbd>    | 'buf-move-up
-<kbd>`<S-down>`</kbd>  | 'buf-move-down
-<kbd>`<S-left>`</kbd>  | 'buf-move-left
-<kbd>`<S-right>`</kbd> | 'buf-move-right
+<kbd>\<S-up\></kbd>    | 'buf-move-up
+<kbd>\<S-down\></kbd>  | 'buf-move-down
+<kbd>\<S-left\></kbd>  | 'buf-move-left
+<kbd>\<S-right\></kbd> | 'buf-move-right
 
 Function        | Description
 ----------------|---------------------------------------------------------------
