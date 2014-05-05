@@ -14,6 +14,10 @@
 
 (setq el-get-sources
       '(
+        (:name clj-refactor
+	       :type elpa
+	       :repo nil
+	       :depends (s dash yasnippet paredit multiple-cursors))
         (:name cider
                :type github
                :pkgname "clojure-emacs/cider"
@@ -34,7 +38,6 @@
          smex
          projectile
          clojure-mode
-         paredit
          markdown-mode
          wgrep
          clj-refactor
