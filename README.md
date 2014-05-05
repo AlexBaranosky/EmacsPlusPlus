@@ -16,10 +16,10 @@ Keybinding         | Description
 <kbd>"ww"</kbd> | 'wgrep-change-to-wgrep-mode
 <kbd>"xx"</kbd> | 'gui-diff-last-failure
 <kbd>C-x f</kbd> | Open file in sudo
-<kbd>S-C-<left></kbd> | Shrink window left
-<kbd>S-C-<right></kbd> | Shrink window right
-<kbd>S-C-<up></kbd> | Shrink window up
-<kbd>S-C-<down></kbd> | Shrink window down
+<kbd>S-C-\<left\></kbd> | Shrink window left
+<kbd>`S-C-<right>`</kbd> | Shrink window right
+<kbd>`S-C-<up>`</kbd> | Shrink window up
+<kbd>`S-C-<down>`</kbd> | Shrink window down
 <kbd>C-c n</kbd> | Cleanup file
 <kbd>C-x g</kbd> | Search the web
 <kbd>C-.</kbd> | 'mc/mark-next-like-this)
