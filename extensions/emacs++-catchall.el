@@ -81,5 +81,7 @@
 (global-set-key (kbd "<S-left>") 'buf-move-left)
 (global-set-key (kbd "<S-right>") 'buf-move-right)
 
+(idle-highlight-mode +1)
+
 (provide 'emacs++-catchall)
 

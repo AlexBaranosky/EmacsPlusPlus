@@ -18,12 +18,28 @@
 	       :type elpa
 	       :repo nil
 	       :depends (s dash yasnippet paredit multiple-cursors))
-        (:name cider
+	(:name cider
                :type github
                :pkgname "clojure-emacs/cider"
-               :checkout "a7bf35fbcaa027d9906eb8e7c13e87293a38ac05"
+               :checkout "v0.5.0" ;;"a7bf35fbcaa027d9906eb8e7c13e87293a38ac05"
                :depends (dash clojure-mode pkg-info))
-        ))
+	(:name idle-highlight-mode
+	       :type github
+	       :pkgname "nonsequitur/idle-highlight-mode"
+	       :checkout "1.1.3")
+
+        ;; (:name cider
+        ;;        :type github
+        ;;        :pkgname "clojure-emacs/cider"
+        ;;        :checkout "v0.6.0" ;;"a7bf35fbcaa027d9906eb8e7c13e87293a38ac05"
+        ;;        :depends (dash clojure-mode pkg-info))
+	;; (:name cider-nrepl
+        ;;        :type github
+        ;;        :pkgname "clojure-emacs/cider-nrepl"
+        ;;        :checkout "v0.6.0" ;; "7f120899b8ff485e9469add459be094da0321c50"
+	;;        )
+
+	))
 
 ;; LOST PACKAGES:
 ;; saveplace
