@@ -76,10 +76,10 @@
 (setq emmet-move-cursor-between-quotes t)
 (setq emmet-move-cursor-after-expanding nil) 
 
-(global-set-key (kbd "<S-up>") 'buf-move-up)
-(global-set-key (kbd "<S-down>") 'buf-move-down)
-(global-set-key (kbd "<S-left>") 'buf-move-left)
-(global-set-key (kbd "<S-right>") 'buf-move-right)
+(global-set-key (kbd "<S-up>")    'windmove-up)
+(global-set-key (kbd "<S-down>")  'windmove-down)
+(global-set-key (kbd "<S-left>")  'windmove-left)
+(global-set-key (kbd "<S-right>") 'windmove-right)
 
 (idle-highlight-mode +1)
 

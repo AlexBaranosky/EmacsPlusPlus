@@ -48,7 +48,6 @@
 (setq my-packages
       (append
        '(
-         buffer-move
          magit
          org-mode
          smex
