@@ -279,6 +279,8 @@ buffer is not visiting a file."
 (add-to-list 'load-path "~/.emacs.d")
 (add-to-list 'load-path "~/.emacs.d/extensions")
 
+(setq backup-directory-alist `(("." . ,(expand-file-name "~/emacs.d/backups"))))
+
 (winner-mode 1)
 (global-hl-line-mode 1)
 (global-auto-revert-mode t)
