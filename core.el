@@ -290,7 +290,7 @@ buffer is not visiting a file."
 (setq-default fill-column 80)
 (when (string-equal system-type "darwin")
   (setq mac-option-modifier 'meta)
-  (setq mac-command-modifier 'meta)
+;;  (setq mac-command-modifier 'meta)
   (set-default-font "-apple-inconsolata-medium-r-normal--14-180-72-72-m-180-iso8859-1"))
 
 (setq ring-bell-function (lambda () (message "*beep*")))
