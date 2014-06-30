@@ -36,6 +36,7 @@
 (key-chord-define-global "qq" 'rotate-windows)
 (key-chord-define-global "ww" 'wgrep-change-to-wgrep-mode)
 (key-chord-define-global "xx" 'gui-diff-last-failure)
+(key-chord-define-global "uu" 'sqlup-capitalize-keywords-in-region)
 
 (defvar push-mark-before-goto-char nil)
 

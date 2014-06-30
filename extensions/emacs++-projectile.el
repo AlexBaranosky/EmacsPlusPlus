@@ -40,6 +40,10 @@
   (interactive)
   (projectile-cleanup-project-x-files "[furtive.dev :refer :all]"))
 
+(defun projectile-cleanup-project-betelgeuse-files ()
+  (interactive)
+  (projectile-cleanup-project-x-files "[betelgeuse.dev :refer :all]"))
+
 (defun projectile-cleanup-project-drive-files ()
   (interactive)
   (projectile-cleanup-project-x-files "[drive.dev :refer :all]"))

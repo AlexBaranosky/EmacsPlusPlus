@@ -15,8 +15,9 @@
 (setq el-get-sources
       '(
         (:name clj-refactor
-	       :type elpa
-	       :repo nil
+	       :type github 
+	       :pkgname "clojure-emacs/clj-refactor.el"
+	       :checkout "0.12.0"
 	       :depends (s dash yasnippet paredit multiple-cursors))
 	(:name cider
                :type github
@@ -27,7 +28,22 @@
 	       :type github
 	       :pkgname "nonsequitur/idle-highlight-mode"
 	       :checkout "1.1.3")
-
+	(:name smeargle
+	       :type github
+	       :pkgname "syohex/emacs-smeargle"
+	       :checkout "490e5f5c00d3d6bf2febcba3382e4e619fa0f38e")
+	(:name quick-run
+	       :type github
+	       :pkgname "syohex/emacs-quickrun"
+	       :checkout "2.0.3")
+	(:name restclient
+	       :type github
+	       :pkgname "pashky/restclient.el"
+	       :checkout "8a3b6eb7439a08df62596561986637d02046cf4d")
+	(:name sqlup
+	       :type github
+	       :pkgname "Trevoke/sqlup-mode.el"
+	       :checkout "5ab96f1d054a1e9fd95021b4cc4d183bafdbeb4e")
         ;; (:name cider
         ;;        :type github
         ;;        :pkgname "clojure-emacs/cider"
@@ -40,6 +56,8 @@
 	;;        )
 
 	))
+
+;; (idle-highlight-mode +1)
 
 ;; LOST PACKAGES:
 ;; saveplace

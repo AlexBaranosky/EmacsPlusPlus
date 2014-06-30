@@ -208,6 +208,10 @@ buffer is not visiting a file."
 ;; (global-set-key (kbd "C-h") 'delete-backward-char)
 ;; (global-set-key (kbd "M-h") 'backward-kill-word)
 
+(add-hook 'emacs-lisp-mode-hook
+	  (lambda ()
+	    (paredit-mode t)))
+
 (eval-after-load "webjump"
   '(progn
      (add-to-list 'webjump-sites
@@ -279,7 +283,10 @@ buffer is not visiting a file."
 (add-to-list 'load-path "~/.emacs.d")
 (add-to-list 'load-path "~/.emacs.d/extensions")
 
-(setq backup-directory-alist `(("." . ,(expand-file-name "~/emacs.d/backups"))))
+(setq backup-directory-alist
+      `(("." . ,(expand-file-name "~/emacs.d/backups"))))
+(setq auto-save-file-name-transforms
+      `((".*" ,(expand-file-name "~/emacs.d/backups") t)))
 
 (winner-mode 1)
 (global-hl-line-mode 1)
@@ -304,4 +311,3 @@ buffer is not visiting a file."
 
 (fset 'split-let
    (lambda (&optional arg) "Keyboard macro." (interactive "p") (kmacro-exec-ring-item (quote ([134217848 112 97 return 93 91 backspace 91 left 32 40 108 101 116 backspace backspace backspace backspace 134217848 112 return 40 108 101 116 67108905 M-left left return 3 110] 0 "%d")) arg)))
-
