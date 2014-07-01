@@ -43,7 +43,7 @@
 	(:name sqlup
 	       :type github
 	       :pkgname "Trevoke/sqlup-mode.el"
-	       :checkout "5ab96f1d054a1e9fd95021b4cc4d183bafdbeb4e")
+	       :checkout "f3aa418bad9aa694956e19344d3de10b3f9930b2")
 	(:name diff-hl
 	       :type elpa)
         ;; (:name cider
