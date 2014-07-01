@@ -44,6 +44,8 @@
 	       :type github
 	       :pkgname "Trevoke/sqlup-mode.el"
 	       :checkout "5ab96f1d054a1e9fd95021b4cc4d183bafdbeb4e")
+	(:name diff-hl
+	       :type elpa)
         ;; (:name cider
         ;;        :type github
         ;;        :pkgname "clojure-emacs/cider"

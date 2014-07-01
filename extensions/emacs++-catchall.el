@@ -27,6 +27,9 @@
            (buffer-file-name)
            " | sort | uniq -c | sort -rn")))
 
+(global-diff-hl-mode +1)
+(add-hook 'dired-mode-hook 'diff-hl-dired-mode)
+
 (key-chord-mode 1)
 (key-chord-define-global "jj" 'ace-jump-word-mode)
 (key-chord-define-global "jc" 'ace-jump-char-mode)
