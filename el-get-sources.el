@@ -46,6 +46,14 @@
 	       :checkout "f3aa418bad9aa694956e19344d3de10b3f9930b2")
 	(:name diff-hl
 	       :type elpa)
+	(:name paradox
+	       :type github
+	       :pkgname "Bruce-Connor/paradox"
+	       :checkout "0.10")
+	(:name git-timemachine
+	       :type github
+	       :pkgname "pidu/git-timemachine"
+	       :checkout "1.1")
         ;; (:name cider
         ;;        :type github
         ;;        :pkgname "clojure-emacs/cider"
