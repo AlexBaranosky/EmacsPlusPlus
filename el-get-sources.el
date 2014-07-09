@@ -56,11 +56,7 @@
 	       :checkout "1.1")
 	(:name agda2-mode
 	       :type http
-	       :url "http://code.haskell.org/Agda/src/data/emacs-mode/agda2-mode.el")
-	(:name idris-mode
-	       :type github
-	       :pkgname "idris-hackers/idris-mode"
-	       :checkout "0.9.13.1")))
+	       :url "http://code.haskell.org/Agda/src/data/emacs-mode/agda2-mode.el")))
 
 ;; (idle-highlight-mode +1)
 
@@ -127,3 +123,36 @@
 
 (el-get-cleanup my-packages)
 (el-get 'sync my-packages)
+
+
+
+
+
+(when window-system
+  (require 'package))
+;; (add-to-list 'package-archives
+;;              '("marmalade" . "http://marmalade-repo.org/packages/") t)
+(add-to-list 'package-archives
+    	     '("melpa" . "http://melpa.milkbox.net/packages/") t)
+
+(add-to-list 'load-path "~/.emacs.d")
+(package-initialize)
+
+(when (not package-archive-contents)
+  (package-refresh-contents))
+
+(setq package-refresh-first-time nil)
+(defun package-require (package-name)
+  "tries to require. If it fails, it retrieves the package and
+   tries to require again (y benzap on #emacs)"
+  (if (not (require package-name nil t))
+      (progn
+        (if (not package-refresh-first-time)
+            (save-excursion
+              (package-refresh-contents)
+              (setq package-refresh-contents t)))
+        (package-install package-name)
+        (require package-name nil t))))
+
+;; (package-require 'idris-mode)
+
