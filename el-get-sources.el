@@ -54,18 +54,13 @@
 	       :type github
 	       :pkgname "pidu/git-timemachine"
 	       :checkout "1.1")
-        ;; (:name cider
-        ;;        :type github
-        ;;        :pkgname "clojure-emacs/cider"
-        ;;        :checkout "v0.6.0" ;;"a7bf35fbcaa027d9906eb8e7c13e87293a38ac05"
-        ;;        :depends (dash clojure-mode pkg-info))
-	;; (:name cider-nrepl
-        ;;        :type github
-        ;;        :pkgname "clojure-emacs/cider-nrepl"
-        ;;        :checkout "v0.6.0" ;; "7f120899b8ff485e9469add459be094da0321c50"
-	;;        )
-
-	))
+	(:name agda2-mode
+	       :type http
+	       :url "http://code.haskell.org/Agda/src/data/emacs-mode/agda2-mode.el")
+	(:name idris-mode
+	       :type github
+	       :pkgname "idris-hackers/idris-mode"
+	       :checkout "0.9.13.1")))
 
 ;; (idle-highlight-mode +1)
 
