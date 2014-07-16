@@ -56,7 +56,12 @@
 	       :checkout "1.1")
 	(:name agda2-mode
 	       :type http
-	       :url "http://code.haskell.org/Agda/src/data/emacs-mode/agda2-mode.el")))
+	       :url "http://code.haskell.org/Agda/src/data/emacs-mode/agda2-mode.el")
+	;; (:name multicolumn
+	;;        :type github
+	;;        :pkgname "Lindydancer/multicolumn"
+	;;        :checkout "9cf6ea89ebda6adeece47067eee3beb3a983f6c9")
+	))
 
 ;; (idle-highlight-mode +1)
 
@@ -116,9 +121,7 @@
          fuzzy-match
          iy-go-to-char
          mic-paren
-         ruby-hash-syntax
-         tagedit
-         jabber)
+         tagedit)
        (mapcar 'el-get-source-name el-get-sources)))
 
 (el-get-cleanup my-packages)
@@ -132,8 +135,8 @@
   (require 'package))
 ;; (add-to-list 'package-archives
 ;;              '("marmalade" . "http://marmalade-repo.org/packages/") t)
-(add-to-list 'package-archives
-    	     '("melpa" . "http://melpa.milkbox.net/packages/") t)
+;; (add-to-list 'package-archives
+;;     	     '("melpa" . "http://melpa.milkbox.net/packages/") t)
 
 (add-to-list 'load-path "~/.emacs.d")
 (package-initialize)
@@ -155,4 +158,4 @@
         (require package-name nil t))))
 
 ;; (package-require 'idris-mode)
-
+;; (package-require 'jabber)
