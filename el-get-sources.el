@@ -19,13 +19,10 @@
 	       :pkgname "clojure-emacs/clj-refactor.el"
 	       :checkout "0.12.0"
 	       :depends (s dash yasnippet paredit multiple-cursors))
-	(:name nrepl
-	       :type elpa)
 	(:name cider
                :type github
                :pkgname "clojure-emacs/cider"
-               :checkout "v0.5.0" ;;"a7bf35fbcaa027d9906eb8e7c13e87293a38ac05"
-               :depends (dash clojure-mode pkg-info nrepl))
+               :checkout "v0.5.0" ;;"a7bf35fbcaa027d9906eb8e7c13e87293a38ac05")
 	(:name idle-highlight-mode
 	       :type github
 	       :pkgname "nonsequitur/idle-highlight-mode"
