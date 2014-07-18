@@ -3,3 +3,5 @@
 (load (expand-file-name "~/.emacs.d/extensions.el"))
 (when (file-exists-p "~/.emacs.d/userspecific.el")
   (load (expand-file-name "~/.emacs.d/userspecific.el")))
+(when (file-exists-p "~/.emacs.d/user.el")
+  (load (expand-file-name "~/.emacs.d/user.el")))
