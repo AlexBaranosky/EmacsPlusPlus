@@ -271,15 +271,6 @@ buffer is not visiting a file."
 
 (put 'upcase-region 'disabled nil)
 
-(when (file-exists-p "~/.zshrc")
-  ;; Get zshrc into PATH
-  (let ((path (shell-command-to-string ". ~/.zshrc; echo -n $PATH")))
-    (setenv "PATH" path)
-    (setq exec-path
-          (append
-           (split-string-and-unquote path ":")
-           exec-path))))
-
 (add-to-list 'load-path "~/.emacs.d")
 (add-to-list 'load-path "~/.emacs.d/extensions")
 

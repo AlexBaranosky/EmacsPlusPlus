@@ -87,5 +87,8 @@
 
 (idle-highlight-mode +1)
 
+(when (memq window-system '(mac ns))
+  (exec-path-from-shell-initialize))
+
 (provide 'emacs++-catchall)
 
