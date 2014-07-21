@@ -14,10 +14,10 @@
 
 (setq el-get-sources
       '(
-	(:name exec-path-from-shell
-	       :type github
-	       :pkgname "purcell/exec-path-from-shell"
-	       :checkout "1.7")
+	;; (:name exec-path-from-shell
+	;;        :type github
+	;;        :pkgname "purcell/exec-path-from-shell"
+	;;        :checkout "1.7")
         (:name clj-refactor
 	       :type github 
 	       :pkgname "clojure-emacs/clj-refactor.el"
