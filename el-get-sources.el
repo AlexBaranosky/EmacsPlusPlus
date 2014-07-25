@@ -57,7 +57,7 @@
 	(:name git-timemachine
 	       :type github
 	       :pkgname "pidu/git-timemachine"
-	       :checkout "1.1")
+	       :checkout "1.3")
 	(:name agda2-mode
 	       :type http
 	       :url "http://code.haskell.org/Agda/src/data/emacs-mode/agda2-mode.el")
