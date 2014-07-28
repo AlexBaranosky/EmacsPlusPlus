@@ -18,7 +18,11 @@
 	;;        :type github
 	;;        :pkgname "purcell/exec-path-from-shell"
 	;;        :checkout "1.7")
-        (:name clj-refactor
+        (:name elixir
+	       :tpye github
+	       :pkgname "elixir-lang/emacs-elixir"
+	       :checkout "v1.4.0")
+	(:name clj-refactor
 	       :type github 
 	       :pkgname "clojure-emacs/clj-refactor.el"
 	       :checkout "0.12.0"
