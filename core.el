@@ -283,6 +283,7 @@ buffer is not visiting a file."
 (global-hl-line-mode 1)
 (global-auto-revert-mode t)
 (global-linum-mode)
+(column-number-mode 1)
 (subword-mode 1)
 
 (setq-default fill-column 80)
