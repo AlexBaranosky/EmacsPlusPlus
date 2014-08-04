@@ -9,9 +9,14 @@ This is particularly useful under Mac OSX, where GUI apps are not started from a
 
 (set-exec-path-from-shell-PATH)
 
+(dolist (project (directory-files "~/.emacs.d/site-lisp" t "\\w+"))
+  (when (file-directory-p project)
+    (add-to-list 'load-path project)))
+
 (load (expand-file-name "~/.emacs.d/core.el"))
 (load (expand-file-name "~/.emacs.d/el-get-sources.el"))
 (load (expand-file-name "~/.emacs.d/extensions.el"))
+(load (expand-file-name "~/.emacs.d/site-lisp.el"))
 (when (file-exists-p "~/.emacs.d/userspecific.el")
   (load (expand-file-name "~/.emacs.d/userspecific.el")))
 (when (file-exists-p "~/.emacs.d/user.el")

@@ -1,3 +1,2 @@
-(require 'twittering-mode)
-(require 'wgrep)
-
+(require 'lfe-start)
+(require 'inferior-lfe)
