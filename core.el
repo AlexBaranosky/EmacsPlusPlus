@@ -174,8 +174,8 @@ buffer is not visiting a file."
 
 
 ;; Elisp go-to-definition with M-. and back again with M-,
-;(autoload 'elisp-slime-nav-mode "elisp-slime-nav")
-;(add-hook 'emacs-lisp-mode-hook (lambda () (elisp-slime-nav-mode t)))
+;;(autoload 'elisp-slime-nav-mode "elisp-slime-nav")
+;;(add-hook 'emacs-lisp-mode-hook (lambda () (elisp-slime-nav-mode t)))
 ;; (eval-after-load 'elisp-slime-nav '(diminish 'elisp-slime-nav-mode))
 
 ;; Turn off mouse interface early in startup to avoid momentary display
@@ -209,8 +209,8 @@ buffer is not visiting a file."
 ;; (global-set-key (kbd "M-h") 'backward-kill-word)
 
 (add-hook 'emacs-lisp-mode-hook
-	  (lambda ()
-	    (paredit-mode t)))
+          (lambda ()
+            (paredit-mode t)))
 
 (eval-after-load "webjump"
   '(progn
@@ -296,12 +296,71 @@ buffer is not visiting a file."
 (setq-default fill-column 80)
 (when (string-equal system-type "darwin")
   (setq mac-option-modifier 'meta)
-;;  (setq mac-command-modifier 'meta)
+  ;;  (setq mac-command-modifier 'meta)
   (set-default-font "-apple-inconsolata-medium-r-normal--14-180-72-72-m-180-iso8859-1"))
 
 (setq ring-bell-function (lambda () (message "*beep*")))
 (setq custom-file "~/.emacs.d/custom.el")
 
+;;; Window manager
+
+;;;;;;;;;;;;;;;
+;; VARIABLES ;;
+;;;;;;;;;;;;;;;
+(defvar workspaces-list nil)
+(defvar workspaces-are-initialized nil)
+
+;;;;;;;;;;;;;;;
+;; FUNCTIONS ;;
+;;;;;;;;;;;;;;;
+(defun workspace-create-new (deskid)
+  "Create a blank workspace at id deskid, between 1 and 9"
+  (interactive "cWhat ID do you want to give to blank workspace ?")
+  (workspace-goto ?0)
+  (window-configuration-to-register deskid)
+  (add-to-list 'workspaces-list deskid)
+  (workspace-goto deskid))
+
+(defun workspace-goto (deskid)
+  "Go to another workspace, deskid is workspace number between 1 and 9;
+    Workspace 0 is a template workspace, do not use it unless you know what you do;
+    You can kill a workspace with 'k' and fallback on 1."
+  (interactive "cTo which workspace do you want to go ? ")
+  (let (add)
+    (setq add (if (eq deskid ?0)
+                  "\n!-!-! This is template workspace. New workspaces are based on it. "
+                nil))
+    (cond
+     ((and (>= deskid ?0)
+           (<= deskid ?9))
+      (if (or (member deskid workspaces-list) (eq deskid ?0))
+          (progn
+            (window-configuration-to-register current-workspace)
+            (setq current-workspace deskid)
+            (jump-to-register deskid))
+        (if (y-or-n-p "This workspace does not exist, should it be created ? ")
+            (progn
+              (window-configuration-to-register current-workspace)
+              (workspace-create-new deskid))
+          nil)))
+     ((and (eq deskid ?k)
+           (not (or (eq current-workspace ?0)
+                    (eq current-workspace ?1))))
+      (let ((deskid-to-del current-workspace))
+        (workspace-goto ?1)
+        (setq workspaces-list (remove deskid-to-del workspaces-list))))
+     (t (setq add "\n!-!-! Please specify a valid workspace number in (1-9), 0 do edit template, 'k' to kill current workspace in (2-9)")))
+    (message (concat "Now on workspace "
+                     (char-to-string current-workspace)
+                     "\nWorkspaces list is : "
+                     (mapconcat 'char-to-string (sort (copy-sequence workspaces-list) '<) ", ")
+                     add))))
+
+(unless workspaces-are-initialized
+  (window-configuration-to-register ?0)
+  (setq current-workspace ?0)
+  (workspace-create-new ?1)
+  (setq workspaces-are-initialized t))
 
 ;;; Auto-created fns from keyboard macros
 
@@ -309,4 +368,4 @@ buffer is not visiting a file."
       (lambda (&optional arg) "Keyboard macro." (interactive "p") (kmacro-exec-ring-item (quote ([18 97 99 116 117 97 108 58 13 134217734 19 40 61 13 right 201326624 201326624 134217847 134217790 40 103 117 105 45 100 105 102 102 32 25 41] 0 "%d")) arg)))
 
 (fset 'split-let
-   (lambda (&optional arg) "Keyboard macro." (interactive "p") (kmacro-exec-ring-item (quote ([134217848 112 97 return 93 91 backspace 91 left 32 40 108 101 116 backspace backspace backspace backspace 134217848 112 return 40 108 101 116 67108905 M-left left return 3 110] 0 "%d")) arg)))
+      (lambda (&optional arg) "Keyboard macro." (interactive "p") (kmacro-exec-ring-item (quote ([134217848 112 97 return 93 91 backspace 91 left 32 40 108 101 116 backspace backspace backspace backspace 134217848 112 return 40 108 101 116 67108905 M-left left return 3 110] 0 "%d")) arg)))
