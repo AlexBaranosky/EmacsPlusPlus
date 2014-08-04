@@ -136,10 +136,6 @@
 (el-get-cleanup my-packages)
 (el-get 'sync my-packages)
 
-
-
-
-
 (when window-system
   (require 'package))
 ;; (add-to-list 'package-archives

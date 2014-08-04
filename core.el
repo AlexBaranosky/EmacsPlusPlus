@@ -286,6 +286,13 @@ buffer is not visiting a file."
 (column-number-mode 1)
 (subword-mode 1)
 
+(add-hook 'org-mode-hook
+          (lambda ()
+            (org-indent-mode t)
+            (toggle-truncate-lines)
+            (define-key org-mode-map "\M-q" 'toggle-truncate-lines))
+          t)
+
 (setq-default fill-column 80)
 (when (string-equal system-type "darwin")
   (setq mac-option-modifier 'meta)
