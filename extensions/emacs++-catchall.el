@@ -87,6 +87,8 @@
 (global-set-key (kbd "<S-right>") 'windmove-right)
 
 (idle-highlight-mode +1)
+(workgroups-mode 1)
+(wg-load "~/.emacs.d/emacs_workgroups")
 
 ;; (require 'breadcrumb)
 ;; (global-set-key [(shift space)] 'bc-set) ;; Shift-SPACE for set bookmark

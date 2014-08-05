@@ -14,62 +14,62 @@
 
 (setq el-get-sources
       '(
-	;; (:name exec-path-from-shell
-	;;        :type github
-	;;        :pkgname "purcell/exec-path-from-shell"
-	;;        :checkout "1.7")
+        ;; (:name exec-path-from-shell
+        ;;        :type github
+        ;;        :pkgname "purcell/exec-path-from-shell"
+        ;;        :checkout "1.7")
         (:name elixir
-	       :tpye github
-	       :pkgname "elixir-lang/emacs-elixir"
-	       :checkout "v1.4.0")
-	(:name clj-refactor
-	       :type github 
-	       :pkgname "clojure-emacs/clj-refactor.el"
-	       :checkout "0.12.0"
-	       :depends (s dash yasnippet paredit multiple-cursors))
-	;; (:name cider
+               :tpye github
+               :pkgname "elixir-lang/emacs-elixir"
+               :checkout "v1.4.0")
+        (:name clj-refactor
+               :type github
+               :pkgname "clojure-emacs/clj-refactor.el"
+               :checkout "0.12.0"
+               :depends (s dash yasnippet paredit multiple-cursors))
+        ;; (:name cider
         ;;        :type github
         ;;        :pkgname "clojure-emacs/cider"
         ;;        :checkout "v0.5.0" ;;"a7bf35fbcaa027d9906eb8e7c13e87293a38ac05"
-	;;        )
-	(:name idle-highlight-mode
-	       :type github
-	       :pkgname "nonsequitur/idle-highlight-mode"
-	       :checkout "1.1.3")
-	(:name smeargle
-	       :type github
-	       :pkgname "syohex/emacs-smeargle"
-	       :checkout "490e5f5c00d3d6bf2febcba3382e4e619fa0f38e")
-	(:name quick-run
-	       :type github
-	       :pkgname "syohex/emacs-quickrun"
-	       :checkout "2.0.3")
-	(:name restclient
-	       :type github
-	       :pkgname "pashky/restclient.el"
-	       :checkout "8a3b6eb7439a08df62596561986637d02046cf4d")
-	(:name sqlup
-	       :type github
-	       :pkgname "Trevoke/sqlup-mode.el"
-	       :checkout "f3aa418bad9aa694956e19344d3de10b3f9930b2")
-	(:name diff-hl
-	       :type elpa)
-	(:name paradox
-	       :type github
-	       :pkgname "Bruce-Connor/paradox"
-	       :checkout "0.10")
-	(:name git-timemachine
-	       :type github
-	       :pkgname "pidu/git-timemachine"
-	       :checkout "1.3")
-	(:name agda2-mode
-	       :type http
-	       :url "http://code.haskell.org/Agda/src/data/emacs-mode/agda2-mode.el")
-	;; (:name multicolumn
-	;;        :type github
-	;;        :pkgname "Lindydancer/multicolumn"
-	;;        :checkout "9cf6ea89ebda6adeece47067eee3beb3a983f6c9")
-	))
+        ;;        )
+        (:name idle-highlight-mode
+               :type github
+               :pkgname "nonsequitur/idle-highlight-mode"
+               :checkout "1.1.3")
+        (:name smeargle
+               :type github
+               :pkgname "syohex/emacs-smeargle"
+               :checkout "490e5f5c00d3d6bf2febcba3382e4e619fa0f38e")
+        (:name quick-run
+               :type github
+               :pkgname "syohex/emacs-quickrun"
+               :checkout "2.0.3")
+        (:name restclient
+               :type github
+               :pkgname "pashky/restclient.el"
+               :checkout "8a3b6eb7439a08df62596561986637d02046cf4d")
+        (:name sqlup
+               :type github
+               :pkgname "Trevoke/sqlup-mode.el"
+               :checkout "f3aa418bad9aa694956e19344d3de10b3f9930b2")
+        (:name diff-hl
+               :type elpa)
+        (:name paradox
+               :type github
+               :pkgname "Bruce-Connor/paradox"
+               :checkout "0.10")
+        (:name git-timemachine
+               :type github
+               :pkgname "pidu/git-timemachine"
+               :checkout "1.3")
+        (:name agda2-mode
+               :type http
+               :url "http://code.haskell.org/Agda/src/data/emacs-mode/agda2-mode.el")
+        ;; (:name multicolumn
+        ;;        :type github
+        ;;        :pkgname "Lindydancer/multicolumn"
+        ;;        :checkout "9cf6ea89ebda6adeece47067eee3beb3a983f6c9")
+        ))
 
 ;; (idle-highlight-mode +1)
 
@@ -80,7 +80,7 @@
 (setq my-packages
       (append
        '(
-	 cider
+         cider
          magit
          org-mode
          smex
@@ -130,7 +130,8 @@
          fuzzy-match
          iy-go-to-char
          mic-paren
-         tagedit)
+         tagedit
+         workgroups)
        (mapcar 'el-get-source-name el-get-sources)))
 
 (el-get-cleanup my-packages)
@@ -141,7 +142,7 @@
 ;; (add-to-list 'package-archives
 ;;              '("marmalade" . "http://marmalade-repo.org/packages/") t)
 ;; (add-to-list 'package-archives
-;;     	     '("melpa" . "http://melpa.milkbox.net/packages/") t)
+;;           '("melpa" . "http://melpa.milkbox.net/packages/") t)
 
 (add-to-list 'load-path "~/.emacs.d")
 (package-initialize)
