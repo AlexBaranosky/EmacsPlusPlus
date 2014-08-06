@@ -288,7 +288,7 @@ buffer is not visiting a file."
 
 (add-hook 'org-mode-hook
           (lambda ()
-            ;;(org-indent-mode t)
+            (org-indent-mode t)
             (toggle-truncate-lines)
             (define-key org-mode-map "\M-q" 'toggle-truncate-lines))
           t)
