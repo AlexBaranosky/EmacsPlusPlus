@@ -13,7 +13,57 @@
 (setq el-get-verbose t)
 
 (setq el-get-sources
-      '(
+      '((:name cider)
+	(:name magit)
+	(:name org-mode)
+	(:name smex)
+	(:name projectile)
+	(:name clojure-mode)
+	(:name markdown-mode)
+	(:name wgrep)
+	(:name clj-refactor)
+	(:name ido-ubiquitous)
+	(:name ac-nrepl)
+	(:name ace-jump-mode)
+	(:name auto-complete)
+	(:name emmet-mode)
+	(:name etags-select)
+	(:name expand-region)
+	(:name fill-column-indicator)
+	(:name flycheck-hdevtools)
+	(:name fuzzy)
+	(:name ghc-mod)
+	(:name ghci-completion)
+	(:name gist)
+	(:name go-mode)
+	(:name guru-mode)
+	(:name haskell-mode)
+	(:name highlight-parentheses)
+	(:name highlight-symbol)
+	(:name hl-sexp)
+	(:name idle-highlight-mode)
+	(:name twittering-mode)
+	(:name idomenu)
+	(:name inf-ruby)
+	(:name key-chord)
+	(:name multiple-cursors)
+	(:name nav)
+	(:name projectile)
+	(:name protobuf-mode)
+	(:name robe-mode)
+	(:name ruby-compilation)
+	(:name ruby-mode)
+	(:name undo-tree)
+	(:name yaml-mode)
+	(:name yasnippet)
+	(:name color-theme-solarized)
+	(:name color-theme-tomorrow)
+	(:name col-highlight)
+	(:name fuzzy-match)
+	(:name iy-go-to-char)
+	(:name mic-paren)
+	(:name tagedit)
+	(:name workgroups)
         ;; (:name exec-path-from-shell
         ;;        :type github
         ;;        :pkgname "purcell/exec-path-from-shell"
@@ -77,63 +127,7 @@
 ;; saveplace
 ;; malabar-mode
 
-(setq my-packages
-      (append
-       '(
-         cider
-         magit
-         org-mode
-         smex
-         projectile
-         clojure-mode
-         markdown-mode
-         wgrep
-         clj-refactor
-         ido-ubiquitous
-         ac-nrepl
-         ace-jump-mode
-         auto-complete
-         emmet-mode
-         etags-select
-         expand-region
-         fill-column-indicator
-         flycheck-hdevtools
-         fuzzy
-         ghc-mod
-         ghci-completion
-         gist
-         go-mode
-         guru-mode
-         haskell-mode
-         highlight-parentheses
-         highlight-symbol
-         hl-sexp
-         idle-highlight-mode
-         twittering-mode
-         idomenu
-         inf-ruby
-         key-chord
-         multiple-cursors
-         nav
-         projectile
-         protobuf-mode
-         robe-mode
-         ruby-compilation
-         ruby-mode
-         undo-tree
-         yaml-mode
-         yasnippet
-         color-theme-solarized
-         color-theme-tomorrow
-
-         col-highlight
-         fuzzy-match
-         iy-go-to-char
-         mic-paren
-         tagedit
-         workgroups)
-       (mapcar 'el-get-source-name el-get-sources)))
-
+(setq my-packages (mapcar 'el-get-source-name el-get-sources))
 (el-get-cleanup my-packages)
 (el-get 'sync my-packages)
 
