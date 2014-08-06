@@ -310,3 +310,8 @@ buffer is not visiting a file."
 
 (fset 'split-let
       (lambda (&optional arg) "Keyboard macro." (interactive "p") (kmacro-exec-ring-item (quote ([134217848 112 97 return 93 91 backspace 91 left 32 40 108 101 116 backspace backspace backspace backspace 134217848 112 return 40 108 101 116 67108905 M-left left return 3 110] 0 "%d")) arg)))
+
+(fset 'todo-comment
+   (lambda (&optional arg) "Keyboard macro." (interactive "p") (kmacro-exec-ring-item (quote ([59 59 32 84 79 68 79 58 33554464 65 108 101 120 32 45 32 134217848 101 109 97 99 115 45 backspace 43 43 45 105 110 115 101 114 116 45 100 97 116 101 return 32 45 32] 0 "%d")) arg)))
+
+(global-set-key [(super t)] 'todo-comment)
