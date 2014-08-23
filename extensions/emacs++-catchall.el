@@ -2,7 +2,6 @@
 (show-paren-mode 1)
 (subword-mode 1)
 (winner-mode)
-(global-undo-tree-mode)
 
 ;; (add-hook 'prog-mode-hook (lambda ()
 ;;                             (guru-mode +1)))
