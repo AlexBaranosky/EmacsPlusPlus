@@ -13,8 +13,7 @@
 (setq el-get-verbose t)
 
 (setq el-get-sources
-      '((:name magit)
-        (:name smex)
+      '((:name smex)
         (:name projectile)
         (:name clojure-mode)
         (:name markdown-mode)
@@ -61,6 +60,47 @@
         (:name mic-paren)
         (:name tagedit)
         (:name workgroups)
+        (:name agda2-mode
+               :type http
+               :url "http://code.haskell.org/Agda/src/data/emacs-mode/agda2-mode.el")
+        (:name cider
+               :type github
+               :pkgname "clojure-emacs/cider"
+               :checkout "v0.5.0")
+        (:name clj-refactor
+               :type github
+               :pkgname "clojure-emacs/clj-refactor.el"
+               :checkout "0.12.0"
+               :depends (s dash yasnippet paredit multiple-cursors))
+        (:name diff-hl
+               :type github
+               :pkgname "dgutov/diff-hl"
+               :checkout "32951f067bdd6f1c1161428c68b81472cc540b8d")
+        (:name elixir
+               :tpye github
+               :pkgname "elixir-lang/emacs-elixir"
+               :checkout "v1.4.0")
+        (:name floobits
+               :type github
+               :checkout "1.5.9"
+               :pkgname "Floobits/floobits-emacs")
+        (:name git-timemachine
+               :type github
+               :pkgname "pidu/git-timemachine"
+               :checkout "1.3")
+        (:name highlight-symbol
+               :description "Quickly highlight a symbol throughout the buffer and cycle through its locations."
+               :type github
+               :pkgname "nschum/highlight-symbol.el"
+               :checkout "1.2")
+        (:name idle-highlight-mode
+               :type github
+               :pkgname "nonsequitur/idle-highlight-mode"
+               :checkout "1.1.3")
+        (:name magit
+               :type github
+               :checkout "1.2.1"
+               :pkgname "magit/magit")
         (:name org-mode
                :after (progn
                         (add-hook 'org-mode-hook
@@ -73,42 +113,10 @@
                                     (define-key org-mode-map "\C-ca" 'org-agenda)
                                     (define-key org-mode-map "\C-cb" 'org-iswitchb)
                                     t))))
-        (:name floobits
-               :website "https://floobits.com"
-               :description "Remote pair programming done right"
+        (:name paradox
                :type github
-               :checkout "1.5.9"
-               :pkgname "Floobits/floobits-emacs")
-        (:name highlight-symbol
-               :description "Quickly highlight a symbol throughout the buffer and cycle through its locations."
-               :type github
-               :pkgname "nschum/highlight-symbol.el"
-               :checkout "1.2")
-        ;; (:name exec-path-from-shell
-        ;;        :type github
-        ;;        :pkgname "purcell/exec-path-from-shell"
-        ;;        :checkout "1.7")
-        (:name elixir
-               :tpye github
-               :pkgname "elixir-lang/emacs-elixir"
-               :checkout "v1.4.0")
-        (:name clj-refactor
-               :type github
-               :pkgname "clojure-emacs/clj-refactor.el"
-               :checkout "0.12.0"
-               :depends (s dash yasnippet paredit multiple-cursors))
-        (:name cider
-               :type github
-               :pkgname "clojure-emacs/cider"
-               :checkout "v0.5.0")
-        (:name idle-highlight-mode
-               :type github
-               :pkgname "nonsequitur/idle-highlight-mode"
-               :checkout "1.1.3")
-        (:name smeargle
-               :type github
-               :pkgname "syohex/emacs-smeargle"
-               :checkout "490e5f5c00d3d6bf2febcba3382e4e619fa0f38e")
+               :pkgname "Bruce-Connor/paradox"
+               :checkout "0.10")
         (:name quick-run
                :type github
                :pkgname "syohex/emacs-quickrun"
@@ -117,28 +125,14 @@
                :type github
                :pkgname "pashky/restclient.el"
                :checkout "8a3b6eb7439a08df62596561986637d02046cf4d")
+        (:name smeargle
+               :type github
+               :pkgname "syohex/emacs-smeargle"
+               :checkout "490e5f5c00d3d6bf2febcba3382e4e619fa0f38e")
         (:name sqlup
                :type github
                :pkgname "Trevoke/sqlup-mode.el"
-               :checkout "f3aa418bad9aa694956e19344d3de10b3f9930b2")
-        (:name diff-hl
-               :type elpa)
-        (:name paradox
-               :type github
-               :pkgname "Bruce-Connor/paradox"
-               :checkout "0.10")
-        (:name git-timemachine
-               :type github
-               :pkgname "pidu/git-timemachine"
-               :checkout "1.3")
-        (:name agda2-mode
-               :type http
-               :url "http://code.haskell.org/Agda/src/data/emacs-mode/agda2-mode.el")
-        ;; (:name multicolumn
-        ;;        :type github
-        ;;        :pkgname "Lindydancer/multicolumn"
-        ;;        :checkout "9cf6ea89ebda6adeece47067eee3beb3a983f6c9")
-        ))
+               :checkout "f3aa418bad9aa694956e19344d3de10b3f9930b2")))
 
 ;; (idle-highlight-mode +1)
 
@@ -178,3 +172,14 @@
 
 ;; (package-require 'idris-mode)
 ;; (package-require 'jabber)
+
+
+;; (:name exec-path-from-shell
+;;        :type github
+;;        :pkgname "purcell/exec-path-from-shell"
+;;        :checkout "1.7")
+
+;; (:name multicolumn
+;;        :type github
+;;        :pkgname "Lindydancer/multicolumn"
+;;        :checkout "9cf6ea89ebda6adeece47067eee3beb3a983f6c9")
