@@ -13,57 +13,77 @@
 (setq el-get-verbose t)
 
 (setq el-get-sources
-      '((:name cider)
-	(:name magit)
-	(:name org-mode)
-	(:name smex)
-	(:name projectile)
-	(:name clojure-mode)
-	(:name markdown-mode)
-	(:name wgrep)
-	(:name clj-refactor)
-	(:name ido-ubiquitous)
-	(:name ac-nrepl)
-	(:name ace-jump-mode)
-	(:name auto-complete)
-	(:name emmet-mode)
-	(:name etags-select)
-	(:name expand-region)
-	(:name fill-column-indicator)
-	(:name flycheck-hdevtools)
-	(:name fuzzy)
-	(:name ghc-mod)
-	(:name ghci-completion)
-	(:name gist)
-	(:name go-mode)
-	(:name guru-mode)
-	(:name haskell-mode)
-	(:name highlight-parentheses)
-	(:name highlight-symbol)
-	(:name hl-sexp)
-	(:name idle-highlight-mode)
-	(:name twittering-mode)
-	(:name idomenu)
-	(:name inf-ruby)
-	(:name key-chord)
-	(:name multiple-cursors)
-	(:name nav)
-	(:name projectile)
-	(:name protobuf-mode)
-	(:name robe-mode)
-	(:name ruby-compilation)
-	(:name ruby-mode)
-	(:name undo-tree)
-	(:name yaml-mode)
-	(:name yasnippet)
-	(:name color-theme-solarized)
-	(:name color-theme-tomorrow)
-	(:name col-highlight)
-	(:name fuzzy-match)
-	(:name iy-go-to-char)
-	(:name mic-paren)
-	(:name tagedit)
-	(:name workgroups)
+      '((:name magit)
+        (:name smex)
+        (:name projectile)
+        (:name clojure-mode)
+        (:name markdown-mode)
+        (:name wgrep)
+        (:name clj-refactor)
+        (:name ido-ubiquitous)
+        (:name ac-nrepl)
+        (:name ace-jump-mode)
+        (:name auto-complete)
+        (:name emmet-mode)
+        (:name etags-select)
+        (:name expand-region)
+        (:name fill-column-indicator)
+        (:name flycheck-hdevtools)
+        (:name fuzzy)
+        (:name ghc-mod)
+        (:name ghci-completion)
+        (:name gist)
+        (:name go-mode)
+        (:name guru-mode)
+        (:name haskell-mode)
+        (:name highlight-parentheses)
+        (:name hl-sexp)
+        (:name idle-highlight-mode)
+        (:name twittering-mode)
+        (:name idomenu)
+        (:name inf-ruby)
+        (:name key-chord)
+        (:name multiple-cursors)
+        (:name nav)
+        (:name projectile)
+        (:name protobuf-mode)
+        (:name robe-mode)
+        (:name ruby-compilation)
+        (:name ruby-mode)
+        (:name undo-tree)
+        (:name yaml-mode)
+        (:name yasnippet)
+        (:name color-theme-solarized)
+        (:name color-theme-tomorrow)
+        (:name col-highlight)
+        (:name fuzzy-match)
+        (:name iy-go-to-char)
+        (:name mic-paren)
+        (:name tagedit)
+        (:name workgroups)
+        (:name org-mode
+               :after (progn
+                        (add-hook 'org-mode-hook
+                                  (lambda ()
+                                    (org-indent-mode t)
+                                    (org-toggle-inline-images)
+                                    (toggle-truncate-lines)
+                                    (turn-on-font-lock)
+                                    (define-key org-mode-map "\C-cl" 'org-store-link)
+                                    (define-key org-mode-map "\C-ca" 'org-agenda)
+                                    (define-key org-mode-map "\C-cb" 'org-iswitchb)
+                                    t))))
+        (:name floobits
+               :website "https://floobits.com"
+               :description "Remote pair programming done right"
+               :type github
+               :checkout "1.5.9"
+               :pkgname "Floobits/floobits-emacs")
+        (:name highlight-symbol
+               :description "Quickly highlight a symbol throughout the buffer and cycle through its locations."
+               :type github
+               :pkgname "nschum/highlight-symbol.el"
+               :checkout "1.2")
         ;; (:name exec-path-from-shell
         ;;        :type github
         ;;        :pkgname "purcell/exec-path-from-shell"
@@ -77,11 +97,10 @@
                :pkgname "clojure-emacs/clj-refactor.el"
                :checkout "0.12.0"
                :depends (s dash yasnippet paredit multiple-cursors))
-        ;; (:name cider
-        ;;        :type github
-        ;;        :pkgname "clojure-emacs/cider"
-        ;;        :checkout "v0.5.0" ;;"a7bf35fbcaa027d9906eb8e7c13e87293a38ac05"
-        ;;        )
+        (:name cider
+               :type github
+               :pkgname "clojure-emacs/cider"
+               :checkout "v0.5.0")
         (:name idle-highlight-mode
                :type github
                :pkgname "nonsequitur/idle-highlight-mode"
