@@ -7,6 +7,10 @@
 ;;             (add-hook 'cider-mode-hook 'cider-turn-on-eldoc-mode) ;;?
 ;;             (cider-enable-on-existing-clojure-buffers)))
 ;; (add-hook 'cider-mode-hook 'subword-mode)
+
+
+(add-hook 'cider-repl-mode-hook 'paredit-mode)
+
 (eval-after-load "auto-complete"
   '(add-to-list 'ac-modes 'cider-mode))
 (add-hook 'cider-mode-hook 'ac-nrepl-setup)
