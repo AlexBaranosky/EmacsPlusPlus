@@ -26,3 +26,6 @@ custom.el
 el-get/
 srecode-map.el
 emacs_workgroups
+bookmarks
+eshell/
+var/
