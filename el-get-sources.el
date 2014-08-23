@@ -13,56 +13,12 @@
 (setq el-get-verbose t)
 
 (setq el-get-sources
-      '((:name smex)
-        (:name projectile)
-        (:name clojure-mode)
-        (:name markdown-mode)
-        (:name wgrep)
-        (:name clj-refactor)
-        (:name ido-ubiquitous)
-        (:name ac-nrepl)
+      '((:name ac-nrepl)
         (:name ace-jump-mode)
-        (:name auto-complete)
-        (:name emmet-mode)
-        (:name etags-select)
-        (:name expand-region)
-        (:name fill-column-indicator)
-        (:name flycheck-hdevtools)
-        (:name fuzzy)
-        (:name ghc-mod)
-        (:name ghci-completion)
-        (:name gist)
-        (:name go-mode)
-        (:name guru-mode)
-        (:name haskell-mode)
-        (:name highlight-parentheses)
-        (:name hl-sexp)
-        (:name idle-highlight-mode)
-        (:name twittering-mode)
-        (:name idomenu)
-        (:name inf-ruby)
-        (:name key-chord)
-        (:name multiple-cursors)
-        (:name nav)
-        (:name projectile)
-        (:name protobuf-mode)
-        (:name robe-mode)
-        (:name ruby-compilation)
-        (:name ruby-mode)
-        (:name undo-tree)
-        (:name yaml-mode)
-        (:name yasnippet)
-        (:name color-theme-solarized)
-        (:name color-theme-tomorrow)
-        (:name col-highlight)
-        (:name fuzzy-match)
-        (:name iy-go-to-char)
-        (:name mic-paren)
-        (:name tagedit)
-        (:name workgroups)
         (:name agda2-mode
                :type http
                :url "http://code.haskell.org/Agda/src/data/emacs-mode/agda2-mode.el")
+        (:name auto-complete)
         (:name cider
                :type github
                :pkgname "clojure-emacs/cider"
@@ -72,6 +28,10 @@
                :pkgname "clojure-emacs/clj-refactor.el"
                :checkout "0.12.0"
                :depends (s dash yasnippet paredit multiple-cursors))
+        (:name clojure-mode)
+        (:name col-highlight)
+        (:name color-theme-solarized)
+        (:name color-theme-tomorrow)
         (:name diff-hl
                :type github
                :pkgname "dgutov/diff-hl"
@@ -80,27 +40,48 @@
                :tpye github
                :pkgname "elixir-lang/emacs-elixir"
                :checkout "v1.4.0")
+        (:name expand-region)
+        (:name fill-column-indicator)
         (:name floobits
                :type github
                :checkout "1.5.9"
                :pkgname "Floobits/floobits-emacs")
+        (:name flycheck-hdevtools)
+        (:name fuzzy)
+        (:name fuzzy-match)
+        (:name ghci-completion)
+        (:name ghc-mod)
+        (:name gist)
         (:name git-timemachine
                :type github
                :pkgname "pidu/git-timemachine"
                :checkout "1.3")
+        (:name guru-mode)
+        (:name haskell-mode)
+        (:name highlight-parentheses)
         (:name highlight-symbol
                :description "Quickly highlight a symbol throughout the buffer and cycle through its locations."
                :type github
                :pkgname "nschum/highlight-symbol.el"
                :checkout "1.2")
+        (:name hl-sexp)
         (:name idle-highlight-mode
                :type github
                :pkgname "nonsequitur/idle-highlight-mode"
                :checkout "1.1.3")
+        (:name ido-ubiquitous)
+        (:name idomenu)
+        (:name inf-ruby)
+        (:name iy-go-to-char)
+        (:name key-chord)
         (:name magit
                :type github
                :checkout "1.2.1"
                :pkgname "magit/magit")
+        (:name markdown-mode)
+        (:name mic-paren
+	       :description "Advanced highlighting of matching parentheses")
+        (:name multiple-cursors)
         (:name org-mode
                :after (progn
                         (add-hook 'org-mode-hook
@@ -117,6 +98,8 @@
                :type github
                :pkgname "Bruce-Connor/paradox"
                :checkout "0.10")
+        (:name projectile)
+        (:name protobuf-mode)
         (:name quick-run
                :type github
                :pkgname "syohex/emacs-quickrun"
@@ -125,14 +108,28 @@
                :type github
                :pkgname "pashky/restclient.el"
                :checkout "8a3b6eb7439a08df62596561986637d02046cf4d")
+        (:name robe-mode)
+        (:name ruby-compilation)
+        (:name ruby-mode)
         (:name smeargle
                :type github
                :pkgname "syohex/emacs-smeargle"
                :checkout "490e5f5c00d3d6bf2febcba3382e4e619fa0f38e")
+        (:name smex)
         (:name sqlup
                :type github
                :pkgname "Trevoke/sqlup-mode.el"
-               :checkout "f3aa418bad9aa694956e19344d3de10b3f9930b2")))
+               :checkout "f3aa418bad9aa694956e19344d3de10b3f9930b2")
+        (:name tagedit
+	       :description "A collection of paredit-like fns for use in html-mode")
+        (:name undo-tree)
+        (:name wgrep)
+        (:name workgroups  ;; https://github.com/pashinin/workgroups2 also!
+               :type github
+               :pkgname "tlh/workgroups.el"
+               :checkout "9572b3492ee09054dc329f64ed846c962b395e39")
+        (:name yaml-mode)
+        (:name yasnippet)))
 
 ;; (idle-highlight-mode +1)
 
