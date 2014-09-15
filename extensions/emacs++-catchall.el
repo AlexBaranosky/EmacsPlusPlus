@@ -89,6 +89,22 @@
 (workgroups-mode 1)
 (wg-load "~/.emacs.d/emacs_workgroups")
 
+(require 'mustache-mode)
+(add-to-list 'auto-mode-alist '("\\.mustache\\'" . mustache-mode))
+
+(require 'web-mode)
+(add-to-list 'auto-mode-alist '("\\.phtml\\'" . web-mode))
+(add-to-list 'auto-mode-alist '("\\.tpl\\.php\\'" . web-mode))
+(add-to-list 'auto-mode-alist '("\\.[gj]sp\\'" . web-mode))
+(add-to-list 'auto-mode-alist '("\\.as[cp]x\\'" . web-mode))
+(add-to-list 'auto-mode-alist '("\\.erb\\'" . web-mode))
+(add-to-list 'auto-mode-alist '("\\.mustache\\'" . web-mode))
+(add-to-list 'auto-mode-alist '("\\.djhtml\\'" . web-mode))
+(add-to-list 'auto-mode-alist '("\\.html?\\'" . web-mode))
+
+(fset 'perl-mode 'cperl-mode)
+(setq cperl-indent-level 2)
+
 ;; (require 'breadcrumb)
 ;; (global-set-key [(shift space)] 'bc-set) ;; Shift-SPACE for set bookmark
 ;; (global-set-key [(meta j)] 'bc-previous) ;; M-j for jump to previous

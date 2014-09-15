@@ -56,6 +56,17 @@
                :description "Highlight the current column."
                :type emacsmirror
                :depends vline)
+	(:name zenburn-theme)
+	(:name color-theme-ample
+	       :type github
+	       :pkgname "jordonbiondo/ample-theme"
+	       :checkout "b63287d34e141aef75ab0717b30a9e3f12ac05a3")
+	(:name color-theme-gruber-darker
+	       :type http
+	       :url "http://jblevins.org/git/misc.git/plain/color-theme-gruber-darker.el")
+	(:name color-theme-less
+	       :type http
+	       :url "http://jblevins.org/git/misc.git/plain/color-theme-less.el")
         (:name color-theme-solarized
                :description "Emacs highlighting using Ethan Schoonover's Solarized color scheme"
                :type github
@@ -215,6 +226,13 @@
                :type github
                :pkgname "magnars/multiple-cursors.el"
                :checkout "1.3.0")
+	(:name mustache
+	       :type http
+	       :url "https://github.com/mustache/emacs/raw/master/mustache-mode.el")
+	(:name neotree
+	       :type github
+	       :pkgname "jaypei/emacs-neotree"
+	       :checkout "0.2")
         (:name org-mode
                :after (progn
                         (add-hook 'org-mode-hook
@@ -259,9 +277,11 @@
                :checkout "f3aa418bad9aa694956e19344d3de10b3f9930b2")
         (:name tagedit
                :description "A collection of paredit-like fns for use in html-mode")
+	(:name tidy)
         (:name undo-tree
                :after (progn
                         (global-undo-tree-mode)))
+	(:name web-mode)
         (:name wgrep
                :type github
                :pkgname "mhayashi1120/Emacs-wgrep"
